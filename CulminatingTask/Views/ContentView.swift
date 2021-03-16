@@ -12,31 +12,31 @@ struct ContentView: View {
     // MARK: Stored Properties
     
     // Variable to hold the temperature
-    var temperature: String
+    @State var temperature: String
     
     // Variable to hold the weather (sunny, rainy, etc.)
-    var conditions: String
+    @State var conditions: String
     
     // Variable to hold the high temperature of the day
-    var highTemperature: String
+    @State var highTemperature: String
     
     // Variable to hold the low temperature of the day
-    var lowTemperature: String
+    @State var lowTemperature: String
     
     // Variable to hold the UV Index value
-    var UVIndex: Int
+    @State var UVIndex: Int
     
     // Variable to hold the wind speed and direction
-    var wind: String
+    @State var wind: String
     
     // Variable to hold precipitation chance
-    var precipitationChance: String
+    @State var precipitationChance: String
     
     // Variable to hold the precipitation amount in mm
-    var precipitationAmount: String
+    @State var precipitationAmount: String
     
     // Variable to hold the humidity
-    var humidity: String
+    @State var humidity: String
     
     // MARK: Computed Properties
     
