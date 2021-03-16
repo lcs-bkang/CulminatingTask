@@ -48,32 +48,54 @@ struct ContentView: View {
         ScrollView {
             VStack {
                 Text(location)
+                    .font(.title)
+                    .padding(.top, -13.0)
                 
+                Spacer()
+                Spacer()
+
                 // HStack for temperatures and image for the condition.
                 HStack {
                     Text("Image")
+                        .padding(.leading, 6.0)
+                    
                     Spacer()
+                    
                     Text("\(temperature)°C")
+                        .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         
                     Spacer()
+                    
                     VStack {
                         Text("\(highTemperature)°C")
                         
                         Text("\(lowTemperature)°C")
                     }
+                    .padding(.trailing, 6.0)
+                    
                 }
+                
+                Rectangle()
+                    .fill(Color.black)
+                    .frame(width: 320, height: 1)
+                Spacer()
+                
                 // First row, for conditions and chance of preciptitation
                 HStack {
                     
                     // Conditions
                     Text(conditions)
+                        .font(.headline)
                     
                     // Chance of Precipitation
                     VStack {
                         Text("Chance of Precipitation")
+                            .font(.subheadline)
+                            
                         
                         Text("\(precipitationChance)%")
+                            .font(.headline)
                     }
                 }
                 // Second row, wind and preciptation amount
@@ -81,14 +103,18 @@ struct ContentView: View {
                     // Wind
                     VStack {
                         Text("Wind")
+                            .font(.subheadline)
                         
                         Text(wind)
+                            .font(.headline)
                     }
                     // Precipitation amount
                     VStack {
                         Text("Precipitation")
+                            .font(.subheadline)
                         
                         Text("\(precipitationAmount) mm")
+                            .font(.headline)
                     }
                 }
                 // Third row, UV Index and humidity
@@ -96,14 +122,18 @@ struct ContentView: View {
                     // UV Index
                     VStack {
                         Text("UV Index")
+                            .font(.subheadline)
                         
                         Text(UVIndex)
+                            .font(.headline)
                     }
                     // Humidity
                     VStack {
                         Text("Humidity")
+                            .font(.subheadline)
                         
                         Text("\(humidity)%")
+                            .font(.headline)
                     }
                 }
             }
