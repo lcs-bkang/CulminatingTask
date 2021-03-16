@@ -12,38 +12,68 @@ struct ContentView: View {
     // MARK: Stored Properties
     
     // Variable to hold the temperature
-    @State var temperature: String
+    @State var temperature: String = "Temperature"
     
     // Variable to hold the weather (sunny, rainy, etc.)
-    @State var conditions: String
+    @State var conditions: String = "Conditions"
     
     // Variable to hold the high temperature of the day
-    @State var highTemperature: String
+    @State var highTemperature: String = "High"
     
     // Variable to hold the low temperature of the day
-    @State var lowTemperature: String
+    @State var lowTemperature: String = "Low"
     
     // Variable to hold the UV Index value
-    @State var UVIndex: Int
+    @State var UVIndex: Int = 0
     
     // Variable to hold the wind speed and direction
-    @State var wind: String
+    @State var wind: String = "Wind"
     
     // Variable to hold precipitation chance
-    @State var precipitationChance: String
+    @State var precipitationChance: String = "Precipitation Chance"
     
     // Variable to hold the precipitation amount in mm
-    @State var precipitationAmount: String
+    @State var precipitationAmount: String = "Amount of Precipitation"
     
     // Variable to hold the humidity
-    @State var humidity: String
+    @State var humidity: String = "Humidity"
+    
+    // Variable for the location
+    @State var location: String = "Location"
     
     // MARK: Computed Properties
     
     var body: some View {
-        
-    }
+        ScrollView {
+            VStack {
+                Text(location)
+                HStack {
+                    Text("Image")
+                    Spacer()
+                    Text("\(temperature)°C")
+                        .multilineTextAlignment(.center)
+                        
+                    Spacer()
+                    VStack {
+                        Text("\(highTemperature)°C")
+                        
+                        Text("\(lowTemperature)°C")
+                    }
+                }
+                HStack {
+                    Text(conditions)
+                    
+                    VStack {
+                        Text("Chance of Precipitation")
+                        
+                        Text("\(precipitationChance)%")
+                    }
+                }
+                
+            }
+        }
     
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
