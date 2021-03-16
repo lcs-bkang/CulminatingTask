@@ -44,9 +44,12 @@ struct ContentView: View {
     // MARK: Computed Properties
     
     var body: some View {
+        
         ScrollView {
             VStack {
                 Text(location)
+                
+                // HStack for temperatures and image for the condition.
                 HStack {
                     Text("Image")
                     Spacer()
@@ -60,33 +63,43 @@ struct ContentView: View {
                         Text("\(lowTemperature)°C")
                     }
                 }
+                // First row, for conditions and chance of preciptitation
                 HStack {
+                    
+                    // Conditions
                     Text(conditions)
                     
+                    // Chance of Precipitation
                     VStack {
                         Text("Chance of Precipitation")
                         
                         Text("\(precipitationChance)%")
                     }
                 }
+                // Second row, wind and preciptation amount
                 HStack {
+                    // Wind
                     VStack {
                         Text("Wind")
                         
                         Text(wind)
                     }
+                    // Precipitation amount
                     VStack {
                         Text("Precipitation")
                         
                         Text("\(precipitationAmount) mm")
                     }
                 }
+                // Third row, UV Index and humidity
                 HStack {
+                    // UV Index
                     VStack {
                         Text("UV Index")
                         
                         Text(UVIndex)
                     }
+                    // Humidity
                     VStack {
                         Text("Humidity")
                         
