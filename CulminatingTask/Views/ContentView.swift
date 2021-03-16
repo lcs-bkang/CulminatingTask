@@ -24,7 +24,7 @@ struct ContentView: View {
     @State var lowTemperature: String = "Low"
     
     // Variable to hold the UV Index value
-    @State var UVIndex: Int = 0
+    @State var UVIndex: String = "UV Index"
     
     // Variable to hold the wind speed and direction
     @State var wind: String = "Wind"
@@ -69,7 +69,30 @@ struct ContentView: View {
                         Text("\(precipitationChance)%")
                     }
                 }
-                
+                HStack {
+                    VStack {
+                        Text("Wind")
+                        
+                        Text(wind)
+                    }
+                    VStack {
+                        Text("Precipitation")
+                        
+                        Text("\(precipitationAmount) mm")
+                    }
+                }
+                HStack {
+                    VStack {
+                        Text("UV Index")
+                        
+                        Text(UVIndex)
+                    }
+                    VStack {
+                        Text("Humidity")
+                        
+                        Text("\(humidity)%")
+                    }
+                }
             }
         }
     
