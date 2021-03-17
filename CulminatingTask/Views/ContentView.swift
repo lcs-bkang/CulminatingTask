@@ -18,16 +18,19 @@ struct ContentView: View {
     @State var conditions: String = "Conditions"
     
     // Variable to hold the high temperature of the day
-    @State var highTemperature: String = "High"
+    @State var highTemperature: Double = 0.0
     
     // Variable to hold the low temperature of the day
-    @State var lowTemperature: String = "Low"
+    @State var lowTemperature: Double = 0.0
     
     // Variable to hold the UV Index value
     @State var UVIndex: String = "UV Index"
     
-    // Variable to hold the wind speed and direction
-    @State var wind: String = "Wind"
+    // Variable to hold the wind speed
+    @State var windSpeed: Double = 0.0
+    
+    // Variable to hold the wind direction
+    @State var windDirection: String = "Wind Direction"
     
     // Variable to hold precipitation chance
     @State var precipitationChance: String = "Precipitation Chance"
@@ -36,7 +39,7 @@ struct ContentView: View {
     @State var precipitationAmount: String = "Amount of Precipitation"
     
     // Variable to hold the humidity
-    @State var humidity: String = "Humidity"
+    @State var humidity: Int = 0
     
     // Variable for the location
     @State var location: String = "Location"
@@ -49,7 +52,7 @@ struct ContentView: View {
             VStack {
                 Text(location)
                     .font(.title)
-                    .padding(.top, -13.0)
+                    .padding(.top, -8.0)
                 
                 Spacer()
                 Spacer()
@@ -105,7 +108,7 @@ struct ContentView: View {
                         Text("Wind")
                             .font(.subheadline)
                         
-                        Text(wind)
+                        Text("\(windSpeed) \(windDirection)")
                             .font(.headline)
                     }
                     // Precipitation amount
@@ -138,8 +141,11 @@ struct ContentView: View {
                 }
             }
         }
-    
+        .onAppear() {
+        fetchWeather()
+        }
     }
+
     
     // MARK: Functions
     
@@ -173,7 +179,6 @@ struct ContentView: View {
             // error
             // An error object that indicates why the request failed, or nil if the request was successful.
 
-
             // Verify that some data was actually returned
             guard let weatherData = data else {
 
@@ -190,7 +195,6 @@ struct ContentView: View {
 
                 // Don't continue past this point
                 return
-
             }
 
             // DEBUG: See what raw JSON data was returned from the server
@@ -206,14 +210,20 @@ struct ContentView: View {
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
 
-                    // Assign the result to the "someText" stored property
+                    // Assign the results to the following stored property
                     temperature = decodedWeatherData.the_temp
-
+                    conditions = decodedWeatherData.weather_state_name
+                    highTemperature = decodedWeatherData.max_temp
+                    lowTemperature = decodedWeatherData.min_temp
+                    windSpeed = decodedWeatherData.wind_speed
+                    windDirection = decodedWeatherData.wind_direction_compass
+                    humidity = decodedWeatherData.humidity
+                    
                 }
 
             } else {
 
-                print("Could not decode JSON into an instance of the DadJoke structure.")
+                print("Could not decode JSON into an instance of the Weather structure.")
 
             }
 

@@ -9,7 +9,6 @@ import Foundation
 
 struct Weather: Decodable {
     
-    var id: Int
     var weather_state_name: String
     var weather_state_abbr: String
     var wind_direction_compass: String
