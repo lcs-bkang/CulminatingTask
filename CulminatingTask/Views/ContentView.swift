@@ -29,14 +29,17 @@ struct ContentView: View {
     // Variable to hold the wind direction
     @State var windDirection: String = "Wind Direction"
     
-    // Variable to hold precipitation chance
-    @State var precipitationChance: String = "Precipitation Chance"
+    // Variable to hold the precipitation chance
+    @State var precipitationChance: Double = 0.0
     
-    // Variable to hold the precipitation amount in mm
-    @State var precipitationAmount: String = "Amount of Precipitation"
+    // Variable to hold the precipitation amount
+    @State var precipitationAmount: Double = 0.0
     
     // Variable to hold the humidity
     @State var humidity: Int = 0
+    
+    // Variable to hold visibility
+    @State var visibility: Double = 0.0
     
     // Variable for the location
     @State var location: String = "Location"
@@ -117,14 +120,14 @@ struct ContentView: View {
                             .font(.headline)
                     }
                 }
-                // Third row, UV Index and humidity
+                // Third row, visibility and humidity
                 HStack {
-                    // UV Index
+                    // Visibility
                     VStack {
-                        Text("UV Index")
+                        Text("Visibility")
                             .font(.subheadline)
                         
-                        Text(UVIndex)
+                        Text("\(visibility) km")
                             .font(.headline)
                     }
                     // Humidity

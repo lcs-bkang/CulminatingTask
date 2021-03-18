@@ -9,6 +9,6 @@ import Foundation
 
 struct WeatherList: Decodable {
     
-    var consolidated_weather: [Weather] = []
+    var location: Location
     
 }
