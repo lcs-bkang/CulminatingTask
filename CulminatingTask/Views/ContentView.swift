@@ -17,11 +17,8 @@ struct ContentView: View {
     // Variable to hold the weather (sunny, rainy, etc.)
     @State var conditions: String = "Conditions"
     
-    // Variable to hold the high temperature of the day
-    @State var highTemperature: Double = 0.0
-    
-    // Variable to hold the low temperature of the day
-    @State var lowTemperature: Double = 0.0
+    // Variable to hold feels like...
+    @State var feelsLike: Double = 0.0
     
     // Variable to hold the wind speed
     @State var windSpeed: Double = 0.0
@@ -70,11 +67,7 @@ struct ContentView: View {
                         
                     Spacer()
                     
-                    VStack {
-                        Text("\(highTemperature)°C")
-                        
-                        Text("\(lowTemperature)°C")
-                    }
+                        Text("\(feelsLike)°C")
                     .padding(.trailing, 6.0)
                     
                 }
@@ -208,10 +201,16 @@ struct ContentView: View {
 
                     // Now, update the UI on the main thread
                     DispatchQueue.main.async {
+
+                        // Assign the results to the following stored property
                         temperature = decodedWeatherData.current.temp_c
                         conditions = decodedWeatherData.current.condition.text
-                        // Assign the results to the following stored property
-
+                        feelsLike = decodedWeatherData.current.feelslike_c
+                        visibility = decodedWeatherData.current.vis_km
+                        humidity = decodedWeatherData.current.humidity
+                        windSpeed = decodedWeatherData.current.wind_kph
+                        windDirection = decodedWeatherData.current.wind_dir
+                        precipitationAmount = decodedWeatherData.current.precip_mm
                     }
             } catch {
 

@@ -10,6 +10,7 @@ import Foundation
 struct currentForecast: Decodable {
 
     var temp_c: Double
+    var feelslike_c: Double
     var wind_kph: Double
     var wind_dir: String
     var precip_mm: Double
