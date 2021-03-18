@@ -23,9 +23,6 @@ struct ContentView: View {
     // Variable to hold the low temperature of the day
     @State var lowTemperature: Double = 0.0
     
-    // Variable to hold the UV Index value
-    @State var UVIndex: String = "UV Index"
-    
     // Variable to hold the wind speed
     @State var windSpeed: Double = 0.0
     
@@ -201,23 +198,23 @@ struct ContentView: View {
             //print(String(data: locationData, encoding: .utf8)!)
 
             // Attempt to decode the JSON into an instance of the Weather structure
-            if let decodedWeatherData = try? JSONDecoder().decode(Weather.self, from: weatherData) {
+            if let decodedWeatherData = try? JSONDecoder().decode(WeatherList.self, from: weatherData) {
 
                 // DEBUG:
                 print("Location data decoded from JSON successfully")
-                print("The weather is: \(decodedWeatherData.the_temp)")
-
+                print("The weather is: \(decodedWeatherData.consolidated_weather[0])")
+                print(decodedWeatherData.consolidated_weather[0])
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
 
                     // Assign the results to the following stored property
-                    temperature = decodedWeatherData.the_temp
-                    conditions = decodedWeatherData.weather_state_name
-                    highTemperature = decodedWeatherData.max_temp
-                    lowTemperature = decodedWeatherData.min_temp
-                    windSpeed = decodedWeatherData.wind_speed
-                    windDirection = decodedWeatherData.wind_direction_compass
-                    humidity = decodedWeatherData.humidity
+                    temperature = decodedWeatherData.consolidated_weather[0].the_temp
+                    conditions = decodedWeatherData.consolidated_weather[0].weather_state_name
+                    lowTemperature = decodedWeatherData.consolidated_weather[0].min_temp
+                    highTemperature = decodedWeatherData.consolidated_weather[0].max_temp
+                    windSpeed = decodedWeatherData.consolidated_weather[0].wind_speed
+                    windDirection = decodedWeatherData.consolidated_weather[0].wind_direction_compass
+                    precipitationChance = decodedWeatherData.consolidated_weather[0].
                     
                 }
 
