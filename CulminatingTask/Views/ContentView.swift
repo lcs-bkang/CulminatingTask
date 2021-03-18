@@ -152,7 +152,7 @@ struct ContentView: View {
     func fetchWeather() {
         
         // Set the address of the JSON endpoint
-        let url = URL(string: "https://www.metaweather.com/api/location/4118/")!
+        let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,Canada&days=1&aqi=no&alerts=yes")!
 
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
@@ -198,27 +198,21 @@ struct ContentView: View {
             }
 
             // DEBUG: See what raw JSON data was returned from the server
-            //print(String(data: locationData, encoding: .utf8)!)
+            print(String(data: weatherData, encoding: .utf8)!)
 
             // Attempt to decode the JSON into an instance of the Weather structure
             if let decodedWeatherData = try? JSONDecoder().decode(WeatherList.self, from: weatherData) {
 
                 // DEBUG:
                 print("Location data decoded from JSON successfully")
-                print("The weather is: \(decodedWeatherData.consolidated_weather[0])")
-                print(decodedWeatherData.consolidated_weather[0])
+                print("The weather is: \(decodedWeatherData.current.temp_c)")
+                print(decodedWeatherData.location.name)
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
 
                     // Assign the results to the following stored property
-                    temperature = decodedWeatherData.consolidated_weather[0].the_temp
-                    conditions = decodedWeatherData.consolidated_weather[0].weather_state_name
-                    lowTemperature = decodedWeatherData.consolidated_weather[0].min_temp
-                    highTemperature = decodedWeatherData.consolidated_weather[0].max_temp
-                    windSpeed = decodedWeatherData.consolidated_weather[0].wind_speed
-                    windDirection = decodedWeatherData.consolidated_weather[0].wind_direction_compass
-                    precipitationChance = decodedWeatherData.consolidated_weather[0].
-                    
+                    temperature = decodedWeatherData.current.temp_c
+                    location = decodedWeatherData.location.name
                 }
 
             } else {

@@ -9,6 +9,6 @@ import Foundation
 
 struct WeatherList: Decodable {
     
-    var location: Location
-    
+    var location: Location 
+    var current: currentForecast
 }

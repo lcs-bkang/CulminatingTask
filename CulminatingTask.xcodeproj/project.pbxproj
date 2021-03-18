@@ -14,6 +14,7 @@
 		A6854E8326012B5700B5CCA9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6854E8226012B5700B5CCA9 /* Preview Assets.xcassets */; };
 		A6DECA0F2603815E00CE0A7B /* WeatherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DECA0E2603815E00CE0A7B /* WeatherList.swift */; };
 		A6DECA1326038C4100CE0A7B /* CurrentForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DECA1226038C4100CE0A7B /* CurrentForecast.swift */; };
+		A6DECA1726038FEF00CE0A7B /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DECA1626038FEF00CE0A7B /* Condition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A6854E8426012B5700B5CCA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6DECA0E2603815E00CE0A7B /* WeatherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherList.swift; sourceTree = "<group>"; };
 		A6DECA1226038C4100CE0A7B /* CurrentForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentForecast.swift; sourceTree = "<group>"; };
+		A6DECA1626038FEF00CE0A7B /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				A64E682026025CB9003DED10 /* Location.swift */,
 				A6DECA0E2603815E00CE0A7B /* WeatherList.swift */,
 				A6DECA1226038C4100CE0A7B /* CurrentForecast.swift */,
+				A6DECA1626038FEF00CE0A7B /* Condition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DECA0F2603815E00CE0A7B /* WeatherList.swift in Sources */,
+				A6DECA1726038FEF00CE0A7B /* Condition.swift in Sources */,
 				A6854E7E26012B5400B5CCA9 /* ContentView.swift in Sources */,
 				A6854E7C26012B5400B5CCA9 /* CulminatingTaskApp.swift in Sources */,
 				A64E682126025CB9003DED10 /* Location.swift in Sources */,

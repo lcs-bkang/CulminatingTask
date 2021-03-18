@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct CurrentForecast: Decodable, Identifiable {
-    
-    var id: Int
+struct currentForecast: Decodable {
+
     var temp_c: Double
     var wind_kph: Double
     var wind_dir: Double
@@ -17,4 +16,5 @@ struct CurrentForecast: Decodable, Identifiable {
     var humidity: Int
     var visib_km: Double
     var uv: Double
+    var condition: Condition
 }

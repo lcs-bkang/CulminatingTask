@@ -7,9 +7,8 @@
 
 import Foundation
 
-struct Location: Decodable, Identifiable {
+struct Location: Decodable {
     
-    var id: Int
     var name: String
     var region: String
     var country: String
