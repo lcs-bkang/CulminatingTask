@@ -198,27 +198,25 @@ struct ContentView: View {
             }
 
             // DEBUG: See what raw JSON data was returned from the server
-            print(String(data: weatherData, encoding: .utf8)!)
+            //print(String(data: weatherData, encoding: .utf8)!)
 
             // Attempt to decode the JSON into an instance of the Weather structure
-            if let decodedWeatherData = try? JSONDecoder().decode(WeatherList.self, from: weatherData) {
+            do {
+                let decodedWeatherData = try JSONDecoder().decode(WeatherList.self, from: weatherData)
+                
+                print("JSON decoded successfully")
 
-                // DEBUG:
-                print("Location data decoded from JSON successfully")
-                print("The weather is: \(decodedWeatherData.current.temp_c)")
-                print(decodedWeatherData.location.name)
-                // Now, update the UI on the main thread
-                DispatchQueue.main.async {
+                    // Now, update the UI on the main thread
+                    DispatchQueue.main.async {
+                        temperature = decodedWeatherData.current.temp_c
+                        conditions = decodedWeatherData.current.condition.text
+                        // Assign the results to the following stored property
 
-                    // Assign the results to the following stored property
-                    temperature = decodedWeatherData.current.temp_c
-                    location = decodedWeatherData.location.name
-                }
-
-            } else {
+                    }
+            } catch {
 
                 print("Could not decode JSON into an instance of the Weather structure.")
-
+                print(error)
             }
 
         }.resume()

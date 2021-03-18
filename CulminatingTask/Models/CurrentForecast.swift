@@ -11,10 +11,10 @@ struct currentForecast: Decodable {
 
     var temp_c: Double
     var wind_kph: Double
-    var wind_dir: Double
+    var wind_dir: String
     var precip_mm: Double
     var humidity: Int
-    var visib_km: Double
+    var vis_km: Double
     var uv: Double
     var condition: Condition
 }
