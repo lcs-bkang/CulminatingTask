@@ -9,6 +9,7 @@ import Foundation
 
 struct currentForecast: Decodable {
 
+    var is_day: Int
     var temp_c: Double
     var feelslike_c: Double
     var wind_kph: Double

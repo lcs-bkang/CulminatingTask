@@ -11,4 +11,5 @@ struct WeatherList: Decodable {
     
     var location: Location 
     var current: currentForecast
+    var forecast: ForecastDay
 }

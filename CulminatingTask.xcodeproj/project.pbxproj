@@ -12,6 +12,9 @@
 		A6854E7E26012B5400B5CCA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6854E7D26012B5400B5CCA9 /* ContentView.swift */; };
 		A6854E8026012B5700B5CCA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6854E7F26012B5700B5CCA9 /* Assets.xcassets */; };
 		A6854E8326012B5700B5CCA9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6854E8226012B5700B5CCA9 /* Preview Assets.xcassets */; };
+		A6D3F2212604FC91008FC0B6 /* SunTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3F2202604FC91008FC0B6 /* SunTimes.swift */; };
+		A6D3F2242604FEE5008FC0B6 /* ForecastDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3F2232604FEE5008FC0B6 /* ForecastDay.swift */; };
+		A6D3F22726050308008FC0B6 /* EachDayForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D3F22626050308008FC0B6 /* EachDayForecast.swift */; };
 		A6DECA0F2603815E00CE0A7B /* WeatherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DECA0E2603815E00CE0A7B /* WeatherList.swift */; };
 		A6DECA1326038C4100CE0A7B /* CurrentForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DECA1226038C4100CE0A7B /* CurrentForecast.swift */; };
 		A6DECA1726038FEF00CE0A7B /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DECA1626038FEF00CE0A7B /* Condition.swift */; };
@@ -27,6 +30,9 @@
 		A6854E7F26012B5700B5CCA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6854E8226012B5700B5CCA9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A6854E8426012B5700B5CCA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6D3F2202604FC91008FC0B6 /* SunTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunTimes.swift; sourceTree = "<group>"; };
+		A6D3F2232604FEE5008FC0B6 /* ForecastDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastDay.swift; sourceTree = "<group>"; };
+		A6D3F22626050308008FC0B6 /* EachDayForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EachDayForecast.swift; sourceTree = "<group>"; };
 		A6DECA0E2603815E00CE0A7B /* WeatherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherList.swift; sourceTree = "<group>"; };
 		A6DECA1226038C4100CE0A7B /* CurrentForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentForecast.swift; sourceTree = "<group>"; };
 		A6DECA1626038FEF00CE0A7B /* Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Condition.swift; sourceTree = "<group>"; };
@@ -107,6 +113,9 @@
 			children = (
 				A6DECA1A2603950800CE0A7B /* DailyForecast.swift */,
 				A6DECA1E2603957F00CE0A7B /* DailyWeather.swift */,
+				A6D3F2202604FC91008FC0B6 /* SunTimes.swift */,
+				A6D3F2232604FEE5008FC0B6 /* ForecastDay.swift */,
+				A6D3F22626050308008FC0B6 /* EachDayForecast.swift */,
 			);
 			path = "Daily Forecasts";
 			sourceTree = "<group>";
@@ -181,13 +190,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6DECA1F2603957F00CE0A7B /* DailyWeather.swift in Sources */,
+				A6D3F2212604FC91008FC0B6 /* SunTimes.swift in Sources */,
 				A6DECA1B2603950800CE0A7B /* DailyForecast.swift in Sources */,
 				A6DECA0F2603815E00CE0A7B /* WeatherList.swift in Sources */,
 				A6DECA1726038FEF00CE0A7B /* Condition.swift in Sources */,
 				A6854E7E26012B5400B5CCA9 /* ContentView.swift in Sources */,
 				A6854E7C26012B5400B5CCA9 /* CulminatingTaskApp.swift in Sources */,
+				A6D3F22726050308008FC0B6 /* EachDayForecast.swift in Sources */,
 				A64E682126025CB9003DED10 /* Location.swift in Sources */,
 				A6DECA1326038C4100CE0A7B /* CurrentForecast.swift in Sources */,
+				A6D3F2242604FEE5008FC0B6 /* ForecastDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

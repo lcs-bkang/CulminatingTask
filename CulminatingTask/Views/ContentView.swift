@@ -38,6 +38,12 @@ struct ContentView: View {
     // Variable to hold visibility
     @State var visibility: Double = 0.0
     
+    // Variable to hold sunrise time
+    @State var sunriseTime: String = "5 AM"
+    
+    // Variable to hold the sunset time
+    @State var sunsetTime: String = "6 PM"
+    
     // Variable for the location
     @State var location: String = "Location"
     
@@ -67,7 +73,7 @@ struct ContentView: View {
                         
                     Spacer()
                     
-                    Text("\(feelsLike, specifier: "%.0f")°C")
+                    Text("Feels like \(feelsLike, specifier: "%.0f")°C")
                     .padding(.trailing, 6.0)
                     
                 }
@@ -94,7 +100,24 @@ struct ContentView: View {
                             .font(.headline)
                     }
                 }
-                // Second row, wind and preciptation amount
+                
+                // Second row, sunrise and sunset times
+                HStack {
+                    // Sunrise
+                    VStack {
+                        Text("Sunrise")
+                        
+                        Text(sunriseTime)
+                    }
+                    
+                    // Sunset
+                    VStack {
+                        Text("Sunset")
+                        
+                        Text(sunsetTime)
+                    }
+                }
+                // Third row, wind and preciptation amount
                 HStack {
                     // Wind
                     VStack {
@@ -113,7 +136,7 @@ struct ContentView: View {
                             .font(.headline)
                     }
                 }
-                // Third row, visibility and humidity
+                // Fourth row, visibility and humidity
                 HStack {
                     // Visibility
                     VStack {
@@ -212,6 +235,8 @@ struct ContentView: View {
                         windDirection = decodedWeatherData.current.wind_dir
                         precipitationAmount = decodedWeatherData.current.precip_mm
                         location = decodedWeatherData.location.name
+                        sunriseTime = decodedWeatherData.forecast.forecastday[0].astro.sunrise
+                        sunsetTime = decodedWeatherData.forecast.forecastday[0].astro.sunset
                     }
             } catch {
 
