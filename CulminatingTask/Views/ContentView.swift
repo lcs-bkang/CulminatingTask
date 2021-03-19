@@ -61,7 +61,7 @@ struct ContentView: View {
                     
                     Spacer()
                     
-                    Text("\(temperature)°C")
+                    Text("\(temperature, specifier: "%.0f")°C")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         
@@ -211,6 +211,7 @@ struct ContentView: View {
                         windSpeed = decodedWeatherData.current.wind_kph
                         windDirection = decodedWeatherData.current.wind_dir
                         precipitationAmount = decodedWeatherData.current.precip_mm
+                        location = decodedWeatherData.location.name
                     }
             } catch {
 

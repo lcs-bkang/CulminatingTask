@@ -10,4 +10,6 @@ import Foundation
 struct DailyWeather: Decodable {
     
     var maxtemp_c: Double
+    var mintemp_c: Double
+    
 }
