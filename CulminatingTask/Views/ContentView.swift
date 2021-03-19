@@ -67,7 +67,7 @@ struct ContentView: View {
                         
                     Spacer()
                     
-                        Text("\(feelsLike)°C")
+                    Text("\(feelsLike, specifier: "%.0f")°C")
                     .padding(.trailing, 6.0)
                     
                 }
@@ -90,7 +90,7 @@ struct ContentView: View {
                             .font(.subheadline)
                             
                         
-                        Text("\(precipitationChance)%")
+                        Text("\(precipitationChance, specifier: "%.0f")%")
                             .font(.headline)
                     }
                 }
@@ -101,7 +101,7 @@ struct ContentView: View {
                         Text("Wind")
                             .font(.subheadline)
                         
-                        Text("\(windSpeed) \(windDirection)")
+                        Text("\(windSpeed, specifier: "%.1f") Km/H \(windDirection)")
                             .font(.headline)
                     }
                     // Precipitation amount
@@ -109,7 +109,7 @@ struct ContentView: View {
                         Text("Precipitation")
                             .font(.subheadline)
                         
-                        Text("\(precipitationAmount) mm")
+                        Text("\(precipitationAmount, specifier: "%.1f") mm")
                             .font(.headline)
                     }
                 }
@@ -120,7 +120,7 @@ struct ContentView: View {
                         Text("Visibility")
                             .font(.subheadline)
                         
-                        Text("\(visibility) km")
+                        Text("\(visibility, specifier: "%.1f") km")
                             .font(.headline)
                     }
                     // Humidity
@@ -128,7 +128,7 @@ struct ContentView: View {
                         Text("Humidity")
                             .font(.subheadline)
                         
-                        Text("\(humidity)%")
+                        Text("\(humidity, specifier: "%.0f")%")
                             .font(.headline)
                     }
                 }
