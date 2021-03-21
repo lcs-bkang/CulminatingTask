@@ -14,6 +14,12 @@ struct ContentView: View {
     // Variable to hold the temperature
     @State var temperature: Double = 0.0
     
+    // Variable to hold the high
+    @State var highTemperature: Double = 0.0
+    
+    // Variable to hold the low
+    @State var lowTemperature: Double = 0.0
+    
     // Variable to hold the weather (sunny, rainy, etc.)
     @State var conditions: String = "Conditions"
     
@@ -59,10 +65,10 @@ struct ContentView: View {
                 
                 Spacer()
                 Spacer()
-
+                
                 // HStack for temperatures and image for the condition.
                 HStack {
-                    Text("Image")
+                    Image(systemName: "sun.max.fill")
                         .padding(.leading, 6.0)
                     
                     Spacer()
@@ -70,18 +76,22 @@ struct ContentView: View {
                     Text("\(temperature, specifier: "%.0f")°C")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
-                        
+                    
                     Spacer()
-                    
-                    Text("Feels like \(feelsLike, specifier: "%.0f")°C")
+                    VStack {
+                        
+                        Text("High: \(highTemperature, specifier: "%.0f")°C")
+                        Text("Low: \(lowTemperature, specifier: "%.0f")°C")
+
+                    }
                     .padding(.trailing, 6.0)
-                    
                 }
+                
+                Text("Feels like \(feelsLike, specifier: "%.0f")°C")
                 
                 Rectangle()
                     .fill(Color.black)
                     .frame(width: 320, height: 1)
-                Spacer()
                 
                 // First row, for conditions and chance of preciptitation
                 HStack {
@@ -94,7 +104,6 @@ struct ContentView: View {
                     VStack {
                         Text("Chance of Precipitation")
                             .font(.subheadline)
-                            
                         
                         Text("\(precipitationChance, specifier: "%.0f")%")
                             .font(.headline)
@@ -158,10 +167,10 @@ struct ContentView: View {
             }
         }
         .onAppear() {
-        fetchWeather()
+            fetchWeather()
         }
     }
-
+    
     
     // MARK: Functions
     
@@ -169,20 +178,20 @@ struct ContentView: View {
         
         // Set the address of the JSON endpoint
         let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,Canada&days=1&aqi=no&alerts=yes")!
-
+        
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
         var request = URLRequest(url: url)
         request.setValue("application/json",
                          forHTTPHeaderField: "Accept")
         request.httpMethod = "GET"
-
+        
         // Run the request on a background thread and process the result.
         // NOTE: This occurs asynchronously.
         //       That means we don't know precisely when the request will
         //       complete.
         URLSession.shared.dataTask(with: request) { data, response, error in
-
+            
             // When the request *does* complete, there are three parameters
             // containing data that are created:
             //
@@ -194,10 +203,10 @@ struct ContentView: View {
             //
             // error
             // An error object that indicates why the request failed, or nil if the request was successful.
-
+            
             // Verify that some data was actually returned
             guard let weatherData = data else {
-
+                
                 // When no data is returned, provide a descriptive error
                 //
                 // error?.localizedDescription is an example of "optional chaining"
@@ -208,47 +217,49 @@ struct ContentView: View {
                 // This means that when the error object *is* nil, a default string of
                 // "Unknown error" will be provided
                 print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-
+                
                 // Don't continue past this point
                 return
             }
-
+            
             // DEBUG: See what raw JSON data was returned from the server
             //print(String(data: weatherData, encoding: .utf8)!)
-
+            
             // Attempt to decode the JSON into an instance of the Weather structure
             do {
                 let decodedWeatherData = try JSONDecoder().decode(WeatherList.self, from: weatherData)
                 
                 print("JSON decoded successfully")
-
-                    // Now, update the UI on the main thread
-                    DispatchQueue.main.async {
-
-                        // Assign the results to the following stored property
-                        temperature = decodedWeatherData.current.temp_c
-                        conditions = decodedWeatherData.current.condition.text
-                        feelsLike = decodedWeatherData.current.feelslike_c
-                        visibility = decodedWeatherData.current.vis_km
-                        humidity = decodedWeatherData.current.humidity
-                        windSpeed = decodedWeatherData.current.wind_kph
-                        windDirection = decodedWeatherData.current.wind_dir
-                        precipitationAmount = decodedWeatherData.current.precip_mm
-                        location = decodedWeatherData.location.name
-                        sunriseTime = decodedWeatherData.forecast.forecastday[0].astro.sunrise
-                        sunsetTime = decodedWeatherData.forecast.forecastday[0].astro.sunset
-                    }
+                
+                // Now, update the UI on the main thread
+                DispatchQueue.main.async {
+                    
+                    // Assign the results to the following stored property
+                    temperature = decodedWeatherData.current.temp_c
+                    conditions = decodedWeatherData.current.condition.text
+                    feelsLike = decodedWeatherData.current.feelslike_c
+                    visibility = decodedWeatherData.current.vis_km
+                    humidity = decodedWeatherData.current.humidity
+                    windSpeed = decodedWeatherData.current.wind_kph
+                    windDirection = decodedWeatherData.current.wind_dir
+                    precipitationAmount = decodedWeatherData.current.precip_mm
+                    location = decodedWeatherData.location.name
+                    sunriseTime = decodedWeatherData.forecast.forecastday[0].astro.sunrise
+                    sunsetTime = decodedWeatherData.forecast.forecastday[0].astro.sunset
+                    highTemperature = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
+                    lowTemperature = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
+                }
             } catch {
-
+                
                 print("Could not decode JSON into an instance of the Weather structure.")
                 print(error)
             }
-
+            
         }.resume()
         // NOTE: Invoking the resume() function
         // on the dataTask closure is key. The request will not
         // run, otherwise.
-
+        
     }
 }
 
