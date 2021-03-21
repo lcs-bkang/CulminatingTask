@@ -69,8 +69,9 @@ struct ContentView: View {
                 // HStack for temperatures and image for the condition.
                 HStack {
                     Image(systemName: "sun.max.fill")
-                        .padding(.leading, 6.0)
-                    
+                        .padding(.leading, 15.0)
+                        .foregroundColor(.yellow)
+                        .font(.largeTitle)
                     Spacer()
                     
                     Text("\(temperature, specifier: "%.0f")°C")
@@ -84,7 +85,8 @@ struct ContentView: View {
                         Text("Low: \(lowTemperature, specifier: "%.0f")°C")
 
                     }
-                    .padding(.trailing, 6.0)
+                    .padding(.trailing, 15.0)
+                    .font(.subheadline)
                 }
                 
                 Text("Feels like \(feelsLike, specifier: "%.0f")°C")
