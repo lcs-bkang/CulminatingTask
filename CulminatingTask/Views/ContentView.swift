@@ -59,46 +59,7 @@ struct ContentView: View {
     // MARK: Computed Properties
     
     // Lowercase conditions
-    var conditionsLower: String {
-        return conditions.lowercased()
-    }
-    
-    var weatherImage: String {
-        
-        switch conditionsLower {
-        case "sunny":
-            return "sun.max.fill"
-        case "partly cloudy":
-            return "cloud.sun.fill"
-        case "cloudy":
-            return "cloud.fill"
-        case "rainy":
-            return "cloud.rain.fill"
-        case "clear":
-            return "sun.min.fill"
-        case "light rain":
-            return "cloud.drizzle.fill"
-        case "light rain shower":
-            return "cloud.rain.fill"
-        case "moderate rain":
-            return "cloud.rain.fill"
-        case "heavy rain":
-            return "cloud.heavyrain.fill"
-        case "patchy rain possible":
-            return "cloud.fill"
-        case "overcast":
-            return "smoke.fill"
-        case "patchy light drizzle":
-            return "cloud.drizzle.fill"
-        case "patchy light rain":
-            return "cloud.drizzle.fill"
-        case "light drizzle":
-            return "cloud.drizzle.fill"
-    
-        default:
-            return "cloud.sun.fill"
-        }
-    }
+
     var body: some View {
         
         ScrollView {
@@ -111,7 +72,7 @@ struct ContentView: View {
                 
                 // HStack for temperatures and image for the condition.
                 HStack(spacing: 15) {
-                    Image(uiImage: (conditionsImage))
+                    Image(uiImage: conditionsImage)
                         .padding(.leading, 15.0)
                         .foregroundColor(.yellow)
                         .scaledToFit()
@@ -275,7 +236,7 @@ struct ContentView: View {
                 
                 print("JSON decoded successfully")
                 
-                //func fetchImage(from: decodedWeatherData.current.condition.icon)
+                fetchImage(from: "https:\(decodedWeatherData.current.condition.icon)")
                 
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
