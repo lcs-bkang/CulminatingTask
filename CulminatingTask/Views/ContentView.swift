@@ -108,10 +108,9 @@ struct ContentView: View {
                     .padding(.top, -8.0)
                 
                 Spacer()
-                Spacer()
                 
                 // HStack for temperatures and image for the condition.
-                HStack {
+                HStack(spacing: 15) {
                     Image(uiImage: (conditionsImage))
                         .padding(.leading, 15.0)
                         .foregroundColor(.yellow)
@@ -121,7 +120,6 @@ struct ContentView: View {
                     Text("\(temperature, specifier: "%.0f")°C")
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
-                    
                     Spacer()
                     VStack {
                         
@@ -277,7 +275,7 @@ struct ContentView: View {
                 
                 print("JSON decoded successfully")
                 
-                func fetchImage(from: )
+                //func fetchImage(from: decodedWeatherData.current.condition.icon)
                 
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
