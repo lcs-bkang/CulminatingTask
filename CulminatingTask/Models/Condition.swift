@@ -9,5 +9,6 @@ import Foundation
 
 struct Condition: Decodable {
     
-    var text: String 
+    var text: String
+    var icon: String
 }

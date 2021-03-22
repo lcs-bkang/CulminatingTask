@@ -23,6 +23,9 @@ struct ContentView: View {
     // Variable to hold the weather (sunny, rainy, etc.)
     @State var conditions: String = "Conditions"
     
+    // Variable to hold conditions image
+    @State var conditionsImage: String = "Image"
+    
     // Variable to hold feels like...
     @State var feelsLike: Double = 0.0
     
@@ -55,6 +58,47 @@ struct ContentView: View {
     
     // MARK: Computed Properties
     
+    // Lowercase conditions
+    var conditionsLower: String {
+        return conditions.lowercased()
+    }
+    
+    var weatherImage: String {
+        
+        switch conditionsLower {
+        case "sunny":
+            return "sun.max.fill"
+        case "partly cloudy":
+            return "cloud.sun.fill"
+        case "cloudy":
+            return "cloud.fill"
+        case "rainy":
+            return "cloud.rain.fill"
+        case "clear":
+            return "sun.min.fill"
+        case "light rain":
+            return "cloud.drizzle.fill"
+        case "light rain shower":
+            return "cloud.rain.fill"
+        case "moderate rain":
+            return "cloud.rain.fill"
+        case "heavy rain":
+            return "cloud.heavyrain.fill"
+        case "patchy rain possible":
+            return "cloud.fill"
+        case "overcast":
+            return "smoke.fill"
+        case "patchy light drizzle":
+            return "cloud.drizzle.fill"
+        case "patchy light rain":
+            return "cloud.drizzle.fill"
+        case "light drizzle":
+            return "cloud.drizzle.fill"
+    
+        default:
+            return "cloud.sun.fill"
+        }
+    }
     var body: some View {
         
         ScrollView {
@@ -68,7 +112,7 @@ struct ContentView: View {
                 
                 // HStack for temperatures and image for the condition.
                 HStack {
-                    Image(systemName: "sun.max.fill")
+                    Image(conditionsImage)
                         .padding(.leading, 15.0)
                         .foregroundColor(.yellow)
                         .font(.largeTitle)
@@ -250,6 +294,7 @@ struct ContentView: View {
                     sunsetTime = decodedWeatherData.forecast.forecastday[0].astro.sunset
                     highTemperature = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
                     lowTemperature = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
+                    conditionsImage = decodedWeatherData.current.condition.icon
                 }
             } catch {
                 
