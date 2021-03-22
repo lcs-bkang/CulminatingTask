@@ -24,7 +24,7 @@ struct ContentView: View {
     @State var conditions: String = "Conditions"
     
     // Variable to hold conditions image
-    @State var conditionsImage: String = "Image"
+    @State var conditionsImage: UIImage = UIImage()
     
     // Variable to hold feels like...
     @State var feelsLike: Double = 0.0
@@ -112,7 +112,7 @@ struct ContentView: View {
                 
                 // HStack for temperatures and image for the condition.
                 HStack {
-                    Image(conditionsImage)
+                    Image(uiImage: (conditionsImage))
                         .padding(.leading, 15.0)
                         .foregroundColor(.yellow)
                         .font(.largeTitle)
@@ -277,6 +277,8 @@ struct ContentView: View {
                 
                 print("JSON decoded successfully")
                 
+                func fetchImage(from: decodedWeatherData.current.condition.icon)
+                
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
                     
@@ -294,7 +296,7 @@ struct ContentView: View {
                     sunsetTime = decodedWeatherData.forecast.forecastday[0].astro.sunset
                     highTemperature = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
                     lowTemperature = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
-                    conditionsImage = decodedWeatherData.current.condition.icon
+
                 }
             } catch {
                 
@@ -308,6 +310,44 @@ struct ContentView: View {
         // run, otherwise.
         
     }
+    
+    // Get the actual image data
+    func fetchImage(from address: String) {
+
+            // 1. Prepare a URLRequest to send our encoded data as JSON
+            let url = URL(string: address)!
+            
+            // 2. Run the request and process the response
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                
+                // handle the result here – attempt to unwrap optional data provided by task
+                guard let imageData = data else {
+                    
+                    // Show the error message
+                    print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                    
+                    return
+                }
+                
+                // Update the UI on the main thread
+                DispatchQueue.main.async {
+                                        
+                    // Attempt to create an instance of UIImage using the data from the server
+                    guard let loadedWeather = UIImage(data: imageData) else {
+                        
+                        // If we could not load the image from the server, show a default image
+                        conditionsImage = UIImage(named: "cloud.fill")!
+                        return
+                    }
+                    
+                    // Set the image loaded from the server so that it shows in the user interface
+                    conditionsImage = loadedWeather
+                }
+                
+            }.resume()
+            
+        }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
