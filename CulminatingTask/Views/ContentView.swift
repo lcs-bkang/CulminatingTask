@@ -115,7 +115,7 @@ struct ContentView: View {
                     Image(uiImage: (conditionsImage))
                         .padding(.leading, 15.0)
                         .foregroundColor(.yellow)
-                        .font(.largeTitle)
+                        .scaledToFit()
                     Spacer()
                     
                     Text("\(temperature, specifier: "%.0f")°C")
@@ -277,7 +277,7 @@ struct ContentView: View {
                 
                 print("JSON decoded successfully")
                 
-                func fetchImage(from: decodedWeatherData.current.condition.icon)
+                func fetchImage(from: )
                 
                 // Now, update the UI on the main thread
                 DispatchQueue.main.async {
