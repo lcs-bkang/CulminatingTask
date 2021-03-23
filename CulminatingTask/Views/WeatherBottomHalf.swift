@@ -50,38 +50,50 @@ struct WeatherBottomHalf: View {
                     // Conditions
                     Text(conditions)
                         .font(.headline)
-                    
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
                     Spacer()
                     
                     // Chance of Precipitation
                     VStack {
-                        Text("Chance of Precipitation")
+                        Text("Precipitation %")
                             .font(.subheadline)
+                            .multilineTextAlignment(.leading)
                         
                         Text("\(precipitationChance, specifier: "%.0f")%")
                             .font(.headline)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
                     }
                     Spacer()
                 }
                 
                 // Second row, sunrise and sunset times
                 HStack {
+                    Spacer()
                     // Sunrise
                     VStack {
                         Text("Sunrise")
+                            .font(.subheadline)
                         
                         Text(sunriseTime)
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
-                    
+                    Spacer()
                     // Sunset
                     VStack {
                         Text("Sunset")
-                        
+                            .font(.subheadline)
                         Text(sunsetTime)
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
+                    Spacer()
                 }
                 // Third row, wind and preciptation amount
                 HStack {
+                    Spacer()
                     // Wind
                     VStack {
                         Text("Wind")
@@ -89,7 +101,9 @@ struct WeatherBottomHalf: View {
                         
                         Text("\(windSpeed, specifier: "%.1f") Km/H \(windDirection)")
                             .font(.headline)
+                            .fontWeight(.bold)
                     }
+                    Spacer()
                     // Precipitation amount
                     VStack {
                         Text("Precipitation")
@@ -97,10 +111,13 @@ struct WeatherBottomHalf: View {
                         
                         Text("\(precipitationAmount, specifier: "%.1f") mm")
                             .font(.headline)
+                            .fontWeight(.bold)
                     }
+                    Spacer()
                 }
                 // Fourth row, visibility and humidity
                 HStack {
+                    Spacer()
                     // Visibility
                     VStack {
                         Text("Visibility")
@@ -108,7 +125,9 @@ struct WeatherBottomHalf: View {
                         
                         Text("\(visibility, specifier: "%.1f") km")
                             .font(.headline)
+                            .fontWeight(.bold)
                     }
+                    Spacer()
                     // Humidity
                     VStack {
                         Text("Humidity")
@@ -116,7 +135,9 @@ struct WeatherBottomHalf: View {
                         
                         Text("\(humidity, specifier: "%.0f")%")
                             .font(.headline)
+                            .fontWeight(.bold)
                     }
+                    Spacer()
                 }
                 .onAppear() {
                     fetchWeather()
