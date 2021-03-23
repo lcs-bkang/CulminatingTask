@@ -52,7 +52,7 @@ struct WeatherBottomHalf: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
-                        .frame(width: 110, height: 50, alignment: .leading)
+                        .frame(width: 110, height: 45, alignment: .leading)
                     Spacer()
                     
                     // Chance of Precipitation
@@ -64,7 +64,7 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-            .frame(width: 110, height: 50, alignment: .leading)
+            .frame(width: 110, height: 45, alignment: .leading)
             
             Spacer()
                 }
@@ -81,7 +81,7 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-            .frame(width: 110, height: 50, alignment: .leading)
+            .frame(width: 110, height: 45, alignment: .leading)
                     Spacer()
                     // Sunset
             VStack(alignment: .leading) {
@@ -91,7 +91,7 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-            .frame(width: 110, height: 50, alignment: .leading)
+            .frame(width: 110, height: 45, alignment: .leading)
                     Spacer()
                 }
                 // Third row, wind and preciptation amount
@@ -106,7 +106,7 @@ struct WeatherBottomHalf: View {
                             .font(.subheadline)
                             .fontWeight(.bold)
                     }
-                    .frame(width: 110, height: 50, alignment: .leading)
+                    .frame(width: 110, height: 45, alignment: .leading)
                     Spacer()
                     // Precipitation amount
             VStack(alignment: .leading) {
@@ -117,7 +117,7 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-                    .frame(width: 110, height: 50, alignment: .leading)
+                    .frame(width: 110, height: 45, alignment: .leading)
                     Spacer()
                 }
                 // Fourth row, visibility and humidity
@@ -132,7 +132,7 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-            .frame(width: 110, height: 50, alignment: .leading)
+            .frame(width: 110, height: 45, alignment: .leading)
             Spacer()
                     
                     // Humidity
@@ -144,7 +144,7 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-            .frame(width: 110, height: 50, alignment: .leading)
+            .frame(width: 110, height: 45, alignment: .leading)
             Spacer()
         
                 }
