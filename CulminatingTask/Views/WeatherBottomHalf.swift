@@ -40,16 +40,8 @@ struct WeatherBottomHalf: View {
     
     // MARK: Computed Properties
     
-    // Lowercase conditions
-
     var body: some View {
-        
-        ScrollView {
-            
-                Rectangle()
-                    .fill(Color.black)
-                    .frame(width: 320, height: 1)
-                
+
                 // First row, for conditions and chance of preciptitation
                 HStack {
                     
@@ -121,11 +113,10 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                     }
                 }
+                .onAppear() {
+                    fetchWeather()
+                }
             }
-        .onAppear() {
-                fetchWeather()
-        }
-}
     
     // MARK: Functions
     
@@ -209,10 +200,8 @@ struct WeatherBottomHalf: View {
         // NOTE: Invoking the resume() function
         // on the dataTask closure is key. The request will not
         // run, otherwise.
-        
-    }
 }
-
+}
 struct WeatherBottomHalf_Previews: PreviewProvider {
     static var previews: some View {
         WeatherBottomHalf()

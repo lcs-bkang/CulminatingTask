@@ -65,6 +65,9 @@ struct WeatherTopHalf: View {
             
             Text("Feels like \(feelsLike, specifier: "%.0f")°C")
         }
+        .onAppear() {
+            fetchWeather()
+        }
     }
     
     // MARK: Functions
@@ -133,7 +136,6 @@ struct WeatherTopHalf: View {
                     
                     // Assign the results to the following stored property
                     temperature = decodedWeatherData.current.temp_c
-                    conditions = decodedWeatherData.current.condition.text
                     feelsLike = decodedWeatherData.current.feelslike_c
                     location = decodedWeatherData.location.name
                     highTemperature = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
