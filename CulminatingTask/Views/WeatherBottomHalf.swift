@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
+//  WeatherBottomHalf.swift
 //  CulminatingTask
 //
-//  Created by Brad Kang on 2021-03-16.
+//  Created by Brad Kang on 2021-03-22.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct WeatherBottomHalf: View {
     
     // MARK: Stored Properties
     
@@ -126,8 +126,6 @@ struct ContentView: View {
                 fetchWeather()
         }
 }
-
-    
     
     // MARK: Functions
     
@@ -213,48 +211,10 @@ struct ContentView: View {
         // run, otherwise.
         
     }
-//
-//    // Get the actual image data
-//    func fetchImage(from address: String) {
-//
-//            // 1. Prepare a URLRequest to send our encoded data as JSON
-//            let url = URL(string: address)!
-//
-//            // 2. Run the request and process the response
-//            URLSession.shared.dataTask(with: url) { data, response, error in
-//
-//                // handle the result here – attempt to unwrap optional data provided by task
-//                guard let imageData = data else {
-//
-//                    // Show the error message
-//                    print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-//
-//                    return
-//                }
-//
-//                // Update the UI on the main thread
-//                DispatchQueue.main.async {
-//
-//                    // Attempt to create an instance of UIImage using the data from the server
-//                    guard let loadedWeather = UIImage(data: imageData) else {
-//
-//                        // If we could not load the image from the server, show a default image
-//                        conditionsImage = UIImage(named: "cloud.fill")!
-//                        return
-//                    }
-//
-//                    // Set the image loaded from the server so that it shows in the user interface
-//                    conditionsImage = loadedWeather
-//                }
-//
-//            }.resume()
-//
-//        }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
+struct WeatherBottomHalf_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        WeatherBottomHalf()
     }
 }
