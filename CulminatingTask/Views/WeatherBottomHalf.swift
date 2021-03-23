@@ -45,9 +45,13 @@ struct WeatherBottomHalf: View {
                 // First row, for conditions and chance of preciptitation
                 HStack {
                     
+                    Spacer()
+                    
                     // Conditions
                     Text(conditions)
                         .font(.headline)
+                    
+                    Spacer()
                     
                     // Chance of Precipitation
                     VStack {
@@ -57,6 +61,7 @@ struct WeatherBottomHalf: View {
                         Text("\(precipitationChance, specifier: "%.0f")%")
                             .font(.headline)
                     }
+                    Spacer()
                 }
                 
                 // Second row, sunrise and sunset times

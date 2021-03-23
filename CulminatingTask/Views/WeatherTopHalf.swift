@@ -49,21 +49,24 @@ struct WeatherTopHalf: View {
                     .scaledToFit()
                 Spacer()
                 
-                Text("\(temperature, specifier: "%.0f")°C")
-                    .font(.largeTitle)
+                Text("\(temperature, specifier: "%.0f")°")
+                    .font(.system(size: 55))
                     .multilineTextAlignment(.center)
                 Spacer()
                 VStack {
                     
-                    Text("High: \(highTemperature, specifier: "%.0f")°C")
-                    Text("Low: \(lowTemperature, specifier: "%.0f")°C")
+                    Text("High: \(highTemperature, specifier: "%.0f")°")
+                        .font(.caption)
+                    Text("Low: \(lowTemperature, specifier: "%.0f")°")
+                        .font(.caption)
 
                 }
                 .padding(.trailing, 15.0)
                 .font(.subheadline)
             }
             
-            Text("Feels like \(feelsLike, specifier: "%.0f")°C")
+            Text("Feels Like: \(feelsLike, specifier: "%.0f")°")
+                .font(.caption)
         }
         .onAppear() {
             fetchWeather()
