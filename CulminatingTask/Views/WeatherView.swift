@@ -9,13 +9,14 @@ import SwiftUI
 
 struct WeatherView: View {
     var body: some View {
-        
+
         ScrollView {
             WeatherTopHalf()
             Rectangle()
                 .fill(Color.black)
                 .frame(width: 320, height: 1)
             WeatherBottomHalf()
+            
         }
     }
 }
