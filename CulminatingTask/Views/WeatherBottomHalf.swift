@@ -43,7 +43,7 @@ struct WeatherBottomHalf: View {
     var body: some View {
 
                 // First row, for conditions and chance of preciptitation
-                HStack {
+        HStack() {
                     
                     Spacer()
                     
@@ -52,27 +52,28 @@ struct WeatherBottomHalf: View {
                         .font(.headline)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
+                        .frame(width: 110, height: 50, alignment: .leading)
                     Spacer()
                     
                     // Chance of Precipitation
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Precipitation %")
                             .font(.subheadline)
-                            .multilineTextAlignment(.leading)
                         
                         Text("\(precipitationChance, specifier: "%.0f")%")
                             .font(.headline)
                             .fontWeight(.bold)
-                            .multilineTextAlignment(.leading)
                     }
-                    Spacer()
+            .frame(width: 110, height: 50, alignment: .leading)
+            
+            Spacer()
                 }
                 
                 // Second row, sunrise and sunset times
-                HStack {
+        HStack() {
                     Spacer()
                     // Sunrise
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Sunrise")
                             .font(.subheadline)
                         
@@ -80,32 +81,35 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
+            .frame(width: 110, height: 50, alignment: .leading)
                     Spacer()
                     // Sunset
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Sunset")
                             .font(.subheadline)
                         Text(sunsetTime)
                             .font(.headline)
                             .fontWeight(.bold)
                     }
+            .frame(width: 110, height: 50, alignment: .leading)
                     Spacer()
                 }
                 // Third row, wind and preciptation amount
-                HStack {
+        HStack() {
                     Spacer()
                     // Wind
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Wind")
                             .font(.subheadline)
                         
                         Text("\(windSpeed, specifier: "%.1f") Km/H \(windDirection)")
-                            .font(.headline)
+                            .font(.subheadline)
                             .fontWeight(.bold)
                     }
+                    .frame(width: 110, height: 50, alignment: .leading)
                     Spacer()
                     // Precipitation amount
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Precipitation")
                             .font(.subheadline)
                         
@@ -113,13 +117,14 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
+                    .frame(width: 110, height: 50, alignment: .leading)
                     Spacer()
                 }
                 // Fourth row, visibility and humidity
-                HStack {
+        HStack() {
                     Spacer()
                     // Visibility
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Visibility")
                             .font(.subheadline)
                         
@@ -127,9 +132,11 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-                    Spacer()
+            .frame(width: 110, height: 50, alignment: .leading)
+            Spacer()
+                    
                     // Humidity
-                    VStack {
+            VStack(alignment: .leading) {
                         Text("Humidity")
                             .font(.subheadline)
                         
@@ -137,7 +144,9 @@ struct WeatherBottomHalf: View {
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-                    Spacer()
+            .frame(width: 110, height: 50, alignment: .leading)
+            Spacer()
+        
                 }
                 .onAppear() {
                     fetchWeather()
