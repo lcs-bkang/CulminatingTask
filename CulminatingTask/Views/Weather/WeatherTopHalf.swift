@@ -32,11 +32,10 @@ struct WeatherTopHalf: View {
     // MARK: Computed Properties
     
     var body: some View {
-        NavigationView {
             VStack {
                 Text(location)
                     .font(.title)
-                    .padding(.top, -8.0)
+                    .padding(.top, -5.0)
                 
                 Spacer()
                 
@@ -69,9 +68,10 @@ struct WeatherTopHalf: View {
             }
             .onAppear() {
                 fetchWeather()
-            }
+            
         }
     }
+
     
     // MARK: Functions
     
