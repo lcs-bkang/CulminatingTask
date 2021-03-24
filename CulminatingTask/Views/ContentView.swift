@@ -29,10 +29,17 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
+                    Spacer()
+                    Image(systemName: "calendar")
+                        .onTapGesture {
+                            self.showWeather = false
+                        }
+                    Spacer()
                     Image(systemName: "cloud")
                         .onTapGesture {
                             self.showWeather = true
-                        }
+                    }
+                    Spacer()
                 }
             }
         }
