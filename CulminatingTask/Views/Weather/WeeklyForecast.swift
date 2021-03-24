@@ -72,6 +72,7 @@ struct WeeklyForecast: View {
             
             Spacer()
             
+            
         }
 
     }
@@ -179,6 +180,10 @@ struct WeeklyForecast: View {
                         precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain
                     }
                     fetchImage1(from: "https:\(decodedWeatherData.forecast.forecastday[0].day.condition.icon)")
+                    fetchImage2(from: "https:\(decodedWeatherData.forecast.forecastday[1].day.condition.icon)")
+                    fetchImage3(from: "https:\(decodedWeatherData.forecast.forecastday[2].day.condition.icon)")
+                    fetchImage4(from: "https:\(decodedWeatherData.forecast.forecastday[3].day.condition.icon)")
+                    fetchImage5(from: "https:\(decodedWeatherData.forecast.forecastday[4].day.condition.icon)")
                     }
             } catch {
 
@@ -224,6 +229,150 @@ struct WeeklyForecast: View {
                 
                 // Set the image loaded from the server so that it shows in the user interface
                 image1 = loadedWeather
+            }
+            
+        }.resume()
+        
+        
+    }
+    func fetchImage2(from address: String) {
+        
+        // 1. Prepare a URLRequest to send our encoded data as JSON
+        let url = URL(string: address)!
+        
+        // 2. Run the request and process the response
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            // handle the result here – attempt to unwrap optional data provided by task
+            guard let imageData = data else {
+                
+                // Show the error message
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                
+                return
+            }
+            
+            // Update the UI on the main thread
+            DispatchQueue.main.async {
+                
+                // Attempt to create an instance of UIImage using the data from the server
+                guard let loadedWeather = UIImage(data: imageData) else {
+                    
+                    // If we could not load the image from the server, show a default image
+                    image2 = UIImage(named: "cloud.fill")!
+                    return
+                }
+                
+                // Set the image loaded from the server so that it shows in the user interface
+                image2 = loadedWeather
+            }
+            
+        }.resume()
+        
+        
+    }
+    func fetchImage3(from address: String) {
+        
+        // 1. Prepare a URLRequest to send our encoded data as JSON
+        let url = URL(string: address)!
+        
+        // 2. Run the request and process the response
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            // handle the result here – attempt to unwrap optional data provided by task
+            guard let imageData = data else {
+                
+                // Show the error message
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                
+                return
+            }
+            
+            // Update the UI on the main thread
+            DispatchQueue.main.async {
+                
+                // Attempt to create an instance of UIImage using the data from the server
+                guard let loadedWeather = UIImage(data: imageData) else {
+                    
+                    // If we could not load the image from the server, show a default image
+                    image3 = UIImage(named: "cloud.fill")!
+                    return
+                }
+                
+                // Set the image loaded from the server so that it shows in the user interface
+                image3 = loadedWeather
+            }
+            
+        }.resume()
+        
+        
+    }
+    func fetchImage4(from address: String) {
+        
+        // 1. Prepare a URLRequest to send our encoded data as JSON
+        let url = URL(string: address)!
+        
+        // 2. Run the request and process the response
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            // handle the result here – attempt to unwrap optional data provided by task
+            guard let imageData = data else {
+                
+                // Show the error message
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                
+                return
+            }
+            
+            // Update the UI on the main thread
+            DispatchQueue.main.async {
+                
+                // Attempt to create an instance of UIImage using the data from the server
+                guard let loadedWeather = UIImage(data: imageData) else {
+                    
+                    // If we could not load the image from the server, show a default image
+                    image4 = UIImage(named: "cloud.fill")!
+                    return
+                }
+                
+                // Set the image loaded from the server so that it shows in the user interface
+                image4 = loadedWeather
+            }
+            
+        }.resume()
+        
+        
+    }
+    func fetchImage5(from address: String) {
+        
+        // 1. Prepare a URLRequest to send our encoded data as JSON
+        let url = URL(string: address)!
+        
+        // 2. Run the request and process the response
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            // handle the result here – attempt to unwrap optional data provided by task
+            guard let imageData = data else {
+                
+                // Show the error message
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                
+                return
+            }
+            
+            // Update the UI on the main thread
+            DispatchQueue.main.async {
+                
+                // Attempt to create an instance of UIImage using the data from the server
+                guard let loadedWeather = UIImage(data: imageData) else {
+                    
+                    // If we could not load the image from the server, show a default image
+                    image5 = UIImage(named: "cloud.fill")!
+                    return
+                }
+                
+                // Set the image loaded from the server so that it shows in the user interface
+                image5 = loadedWeather
             }
             
         }.resume()
