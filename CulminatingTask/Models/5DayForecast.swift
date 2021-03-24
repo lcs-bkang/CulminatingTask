@@ -1,36 +1,63 @@
 //
-//  WeeklyForecast.swift
+//  5DayForecast.swift
 //  CulminatingTask
 //
-//  Created by Brad Kang on 2021-03-23.
+//  Created by Brad Kang on 2021-03-24.
 //
-//
-import SwiftUI
 
-struct WeeklyForecast: View {
+import Foundation
 
-    // MARK: Stored Properties
+struct FiveDayForecast: Identifiable {
+    
+    var id = UUID()
 
-    // MARK: Computed Properties
+    // Variable to hold high temp for day 1
+    var highTemp1: Double = 0.0
+    
+    // Variable to hold high temp for day 2
+    var highTemp2: Double = 0.0
+    
+    // Variable to hold high temp for day 3
+    var highTemp3: Double = 0.0
+    
+    // Variable to hold high temp for day 4
+    var highTemp4: Double = 0.0
+    
+    // Variable to hold high temp for day 5
+    var highTemp5: Double = 0.0
+    
+    // Variable to hold the low temp for day 1
+    var lowTemp1: Double = 0.0
+    
+    // Variable to hold the low temp for day 2
+    var lowTemp2: Double = 0.0
+    
+    // Variable to hold the low temp for day 3
+    var lowTemp3: Double = 0.0
+    
+    // Variable to hold the low temp for day 4
+    var lowTemp4: Double = 0.0
+    
+    // Variable to hold the low temp for day 5
+    var lowTemp5: Double = 0.0
+    
+    // Variable to hold the preciptation for day 1
+    var precipitation1: Int = 0
+    
+    // Variable to hold the preciptation for day 2
+    var precipitation2: Int = 0
+    
+    // Variable to hold the preciptation for day 3
+    var precipitation3: Int = 0
+    
+    // Variable to hold the preciptation for day 4
+    var precipitation4: Int = 0
+    
+    // Variable to hold the preciptation for day 5
+    var precipitation5: Int = 0
 
-    var body: some View {
-        let highTempArray = [
-        highTemp1, highTemp2, highTemp3, highTemp4, highTemp5
-        ]
-        let lowTempArray = [
-        lowTemp1, lowTemp2, lowTemp3, lowTemp4, lowTemp5
-        ]
-        let precipitationArray = [
-        precipitation1, precipitation2, precipitation3, precipitation4, precipitation5
-        ]
-        List(
-
-    }
-
-
-    // MARK: Functions
-
-    func fetchWeather() {
+    
+    mutating func fetchWeather() {
 
         // Set the address of the JSON endpoint
         let url = URL(string: "    https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,ON&days=5&aqi=no&alerts=yes")!
@@ -91,26 +118,30 @@ struct WeeklyForecast: View {
                 DispatchQueue.main.async {
 
                     // Assign the results to the following stored property
-
-
-                }
+                    highTemp1 = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
+                    highTemp2 = decodedWeatherData.forecast.forecastday[1].day.maxtemp_c
+                    highTemp3 = decodedWeatherData.forecast.forecastday[2].day.maxtemp_c
+                    highTemp4 = decodedWeatherData.forecast.forecastday[3].day.maxtemp_c
+                    highTemp5 = decodedWeatherData.forecast.forecastday[4].day.maxtemp_c
+                    
+                    lowTemp1 = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
+                    lowTemp2 = decodedWeatherData.forecast.forecastday[1].day.mintemp_c
+                    lowTemp3 = decodedWeatherData.forecast.forecastday[2].day.mintemp_c
+                    lowTemp4 = decodedWeatherData.forecast.forecastday[3].day.mintemp_c
+                    lowTemp5 = decodedWeatherData.forecast.forecastday[4].day.mintemp_c
+                    
+                    precipitation1 = decodedWeatherData.forecast.forecastday[0].day.
+                    }
             } catch {
 
                 print("Could not decode JSON into an instance of the Weather structure.")
                 print(error)
             }
-
+    
         }.resume()
         // NOTE: Invoking the resume() function
         // on the dataTask closure is key. The request will not
         // run, otherwise.
 
-    }
-
-}
-
-struct WeeklyForecast_Previews: PreviewProvider {
-    static var previews: some View {
-        WeeklyForecast()
     }
 }
