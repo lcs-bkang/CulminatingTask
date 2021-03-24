@@ -31,11 +31,15 @@ struct ContentView: View {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Spacer()
                     Image(systemName: "calendar")
+                        .resizable()
+                        .frame(width: 33, height: 27)
                         .onTapGesture {
                             self.showWeather = false
                         }
                     Spacer()
                     Image(systemName: "cloud")
+                        .resizable()
+                        .frame(width: 40, height: 27)
                         .onTapGesture {
                             self.showWeather = true
                     }
