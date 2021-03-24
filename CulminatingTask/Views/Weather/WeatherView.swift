@@ -18,7 +18,7 @@ struct WeatherView: View {
             WeatherBottomHalf()
             
         }
-        .background(Color.blue)
+        .background(Color(hue: 195/360, saturation: 0.3, brightness: 0.8))
         .ignoresSafeArea()
     }
 }
