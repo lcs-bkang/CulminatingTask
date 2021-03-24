@@ -13,4 +13,5 @@ struct DailyWeather: Decodable {
     var mintemp_c: Double
     var daily_chance_of_rain: Int
     var daily_chance_of_snow: Int
+    var condition: DailyConditions
 }
