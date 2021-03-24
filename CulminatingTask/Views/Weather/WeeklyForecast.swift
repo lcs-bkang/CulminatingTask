@@ -55,11 +55,22 @@ struct WeeklyForecast: View {
     
     // Variable to hold the preciptation for day 5
     @State var precipitation5: Int = 0
+    
+    @State var image1 = UIImage()
+    @State var image2 = UIImage()
+    @State var image3 = UIImage()
+    @State var image4 = UIImage()
+    @State var image5 = UIImage()
+    
+
 
     // MARK: Computed Properties
 
     var body: some View {
         HStack {
+            Text("Sunday")
+            
+            Spacer()
             
         }
 
@@ -167,6 +178,7 @@ struct WeeklyForecast: View {
                     } else {
                         precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain
                     }
+                    fetchImage1(from: "https:\(decodedWeatherData.forecast.forecastday[0].day.)")
                     }
             } catch {
 
@@ -181,6 +193,43 @@ struct WeeklyForecast: View {
 
     }
 
+    // Get the actual image data
+    func fetchImage1(from address: String) {
+        
+        // 1. Prepare a URLRequest to send our encoded data as JSON
+        let url = URL(string: address)!
+        
+        // 2. Run the request and process the response
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            // handle the result here – attempt to unwrap optional data provided by task
+            guard let imageData = data else {
+                
+                // Show the error message
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                
+                return
+            }
+            
+            // Update the UI on the main thread
+            DispatchQueue.main.async {
+                
+                // Attempt to create an instance of UIImage using the data from the server
+                guard let loadedWeather = UIImage(data: imageData) else {
+                    
+                    // If we could not load the image from the server, show a default image
+                    image1 = UIImage(named: "cloud.fill")!
+                    return
+                }
+                
+                // Set the image loaded from the server so that it shows in the user interface
+                image1 = loadedWeather
+            }
+            
+        }.resume()
+        
+        
+    }
 }
 
 struct WeeklyForecast_Previews: PreviewProvider {
