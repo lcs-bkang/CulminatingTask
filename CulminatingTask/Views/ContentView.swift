@@ -34,6 +34,7 @@ struct ContentView: View {
                     Image(systemName: "calendar")
                         .resizable()
                         .frame(width: 33, height: 27)
+                        .foregroundColor(.red)
                         .onTapGesture {
                             self.showWeather = false
                         }
@@ -41,6 +42,7 @@ struct ContentView: View {
                     Image(systemName: "cloud")
                         .resizable()
                         .frame(width: 40, height: 27)
+                        .foregroundColor(.blue)
                         .onTapGesture {
                             self.showWeather = true
                     }

@@ -35,7 +35,7 @@ struct WeatherTopHalf: View {
             VStack {
                 Text(location)
                     .font(.title)
-                    .padding(.top, 15.0)
+                    .padding(.top, 20.0)
                 
                 Spacer()
                 
