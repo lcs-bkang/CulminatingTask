@@ -57,11 +57,11 @@ struct WeeklyForecast: View {
             HStack {
                 VStack {
                     Text("min")
-                    Text("\(lowTemp1)")
+                    Text("\(lowTemp1, specifier: "%.0f")°")
                 }
                 VStack {
                     Text("max")
-                    Text("\(highTemp1)")
+                    Text("\(highTemp1, specifier: "%.0f")°")
                 }
             }
         }
