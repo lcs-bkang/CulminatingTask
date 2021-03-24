@@ -9,6 +9,7 @@ import Foundation
 
 struct DailyForecast: Decodable {
     
+    var date: String
     var day: DailyWeather
     var astro: SunTimes
     

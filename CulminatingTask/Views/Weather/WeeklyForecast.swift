@@ -20,12 +20,6 @@ struct WeeklyForecast: View {
     // Variable to hold high temp for day 3
     @State var highTemp3: Double = 0.0
     
-    // Variable to hold high temp for day 4
-    @State var highTemp4: Double = 0.0
-    
-    // Variable to hold high temp for day 5
-    @State var highTemp5: Double = 0.0
-    
     // Variable to hold the low temp for day 1
     @State var lowTemp1: Double = 0.0
     
@@ -34,12 +28,6 @@ struct WeeklyForecast: View {
     
     // Variable to hold the low temp for day 3
     @State var lowTemp3: Double = 0.0
-    
-    // Variable to hold the low temp for day 4
-    @State var lowTemp4: Double = 0.0
-    
-    // Variable to hold the low temp for day 5
-    @State var lowTemp5: Double = 0.0
     
     // Variable to hold the preciptation for day 1
     @State var precipitation1: String = "1"
@@ -50,19 +38,9 @@ struct WeeklyForecast: View {
     // Variable to hold the preciptation for day 3
     @State var precipitation3: String = "3"
     
-    // Variable to hold the preciptation for day 4
-    @State var precipitation4: String = "4"
-    
-    // Variable to hold the preciptation for day 5
-    @State var precipitation5: String = "5"
-    
     @State var image1 = UIImage()
     @State var image2 = UIImage()
     @State var image3 = UIImage()
-    @State var image4 = UIImage()
-    @State var image5 = UIImage()
-    
-
 
     // MARK: Computed Properties
 
@@ -99,7 +77,7 @@ struct WeeklyForecast: View {
     func fetchWeather() {
 
         // Set the address of the JSON endpoint
-        let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,ON&days=5&aqi=no&alerts=yes")!
+        let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,ON&days=10&aqi=no&alerts=yes")!
 
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
@@ -160,15 +138,11 @@ struct WeeklyForecast: View {
                     highTemp1 = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
                     highTemp2 = decodedWeatherData.forecast.forecastday[1].day.maxtemp_c
                     highTemp3 = decodedWeatherData.forecast.forecastday[2].day.maxtemp_c
-                    highTemp4 = decodedWeatherData.forecast.forecastday[3].day.maxtemp_c
-                    highTemp5 = decodedWeatherData.forecast.forecastday[4].day.maxtemp_c
-                    
+
                     lowTemp1 = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
                     lowTemp2 = decodedWeatherData.forecast.forecastday[1].day.mintemp_c
                     lowTemp3 = decodedWeatherData.forecast.forecastday[2].day.mintemp_c
-                    lowTemp4 = decodedWeatherData.forecast.forecastday[3].day.mintemp_c
-                    lowTemp5 = decodedWeatherData.forecast.forecastday[4].day.mintemp_c
-                    
+
                     if decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_rain == "0" {
                         precipitation2 = decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_snow
                     } else {
@@ -180,16 +154,6 @@ struct WeeklyForecast: View {
                     } else {
                         precipitation3 = decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_rain
                     }
-                    if decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain == "0" {
-                        precipitation4 = decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_snow
-                    } else {
-                        precipitation4 = decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain
-                    }
-                    if decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain == "0" {
-                        precipitation5 = decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_snow
-                    } else {
-                        precipitation5 = decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain
-                    }
                     if decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain == "0" {
                         precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_snow
                     } else {
@@ -198,8 +162,6 @@ struct WeeklyForecast: View {
                     fetchImage1(from: "https:\(decodedWeatherData.forecast.forecastday[0].day.condition.icon)")
                     fetchImage2(from: "https:\(decodedWeatherData.forecast.forecastday[1].day.condition.icon)")
                     fetchImage3(from: "https:\(decodedWeatherData.forecast.forecastday[2].day.condition.icon)")
-                    fetchImage4(from: "https:\(decodedWeatherData.forecast.forecastday[3].day.condition.icon)")
-                    fetchImage5(from: "https:\(decodedWeatherData.forecast.forecastday[4].day.condition.icon)")
                     }
             } catch {
 
@@ -317,78 +279,6 @@ struct WeeklyForecast: View {
                 
                 // Set the image loaded from the server so that it shows in the user interface
                 image3 = loadedWeather
-            }
-            
-        }.resume()
-        
-        
-    }
-    func fetchImage4(from address: String) {
-        
-        // 1. Prepare a URLRequest to send our encoded data as JSON
-        let url = URL(string: address)!
-        
-        // 2. Run the request and process the response
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            // handle the result here – attempt to unwrap optional data provided by task
-            guard let imageData = data else {
-                
-                // Show the error message
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                
-                return
-            }
-            
-            // Update the UI on the main thread
-            DispatchQueue.main.async {
-                
-                // Attempt to create an instance of UIImage using the data from the server
-                guard let loadedWeather = UIImage(data: imageData) else {
-                    
-                    // If we could not load the image from the server, show a default image
-                    image4 = UIImage(named: "cloud.fill")!
-                    return
-                }
-                
-                // Set the image loaded from the server so that it shows in the user interface
-                image4 = loadedWeather
-            }
-            
-        }.resume()
-        
-        
-    }
-    func fetchImage5(from address: String) {
-        
-        // 1. Prepare a URLRequest to send our encoded data as JSON
-        let url = URL(string: address)!
-        
-        // 2. Run the request and process the response
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            // handle the result here – attempt to unwrap optional data provided by task
-            guard let imageData = data else {
-                
-                // Show the error message
-                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                
-                return
-            }
-            
-            // Update the UI on the main thread
-            DispatchQueue.main.async {
-                
-                // Attempt to create an instance of UIImage using the data from the server
-                guard let loadedWeather = UIImage(data: imageData) else {
-                    
-                    // If we could not load the image from the server, show a default image
-                    image5 = UIImage(named: "cloud.fill")!
-                    return
-                }
-                
-                // Set the image loaded from the server so that it shows in the user interface
-                image5 = loadedWeather
             }
             
         }.resume()

@@ -78,7 +78,7 @@ struct WeatherTopHalf: View {
     func fetchWeather() {
         
         // Set the address of the JSON endpoint
-        let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,Canada&days=1&aqi=no&alerts=yes")!
+        let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,Canada&days=5&aqi=no&alerts=yes")!
         
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
