@@ -42,19 +42,19 @@ struct WeeklyForecast: View {
     @State var lowTemp5: Double = 0.0
     
     // Variable to hold the preciptation for day 1
-    @State var precipitation1: Int = 0
+    @State var precipitation1: String = "1"
     
     // Variable to hold the preciptation for day 2
-    @State var precipitation2: Int = 0
+    @State var precipitation2: String = "2"
     
     // Variable to hold the preciptation for day 3
-    @State var precipitation3: Int = 0
+    @State var precipitation3: String = "3"
     
     // Variable to hold the preciptation for day 4
-    @State var precipitation4: Int = 0
+    @State var precipitation4: String = "4"
     
     // Variable to hold the preciptation for day 5
-    @State var precipitation5: Int = 0
+    @State var precipitation5: String = "5"
     
     @State var image1 = UIImage()
     @State var image2 = UIImage()
@@ -72,7 +72,23 @@ struct WeeklyForecast: View {
             
             Spacer()
             
+            Image(uiImage: image1)
             
+            Spacer()
+            
+            HStack {
+                VStack {
+                    Text("min")
+                    Text("\(lowTemp1)")
+                }
+                VStack {
+                    Text("max")
+                    Text("\(highTemp1)")
+                }
+            }
+        }
+        .onAppear() {
+            fetchWeather()
         }
 
     }
@@ -83,7 +99,7 @@ struct WeeklyForecast: View {
     func fetchWeather() {
 
         // Set the address of the JSON endpoint
-        let url = URL(string: "    https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,ON&days=5&aqi=no&alerts=yes")!
+        let url = URL(string: "https://api.weatherapi.com/v1/forecast.json?key=f217946271d842a1ae2162435211503&q=Peterborough,ON&days=5&aqi=no&alerts=yes")!
 
         // Configure a URLRequest instance
         // Defines what type of request will be sent to the address noted above
@@ -153,28 +169,28 @@ struct WeeklyForecast: View {
                     lowTemp4 = decodedWeatherData.forecast.forecastday[3].day.mintemp_c
                     lowTemp5 = decodedWeatherData.forecast.forecastday[4].day.mintemp_c
                     
-                    if decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_rain == 0 {
+                    if decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_rain == "0" {
                         precipitation2 = decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_snow
                     } else {
                         precipitation2 = decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_rain
                     }
                     
-                    if decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_rain == 0 {
+                    if decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_rain == "0" {
                         precipitation3 = decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_snow
                     } else {
                         precipitation3 = decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_rain
                     }
-                    if decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain == 0 {
+                    if decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain == "0" {
                         precipitation4 = decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_snow
                     } else {
                         precipitation4 = decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain
                     }
-                    if decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain == 0 {
+                    if decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain == "0" {
                         precipitation5 = decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_snow
                     } else {
                         precipitation5 = decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain
                     }
-                    if decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain == 0 {
+                    if decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain == "0" {
                         precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_snow
                     } else {
                         precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain

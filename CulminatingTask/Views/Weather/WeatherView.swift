@@ -16,7 +16,10 @@ struct WeatherView: View {
                 .fill(Color.black)
                 .frame(width: 320, height: 1)
             WeatherBottomHalf()
-            
+            Rectangle()
+                .fill(Color.black)
+                .frame(width: 320, height: 1)
+            WeeklyForecast()
         }
         .background(Color(hue: 195/360, saturation: 0.3, brightness: 0.8))
         .ignoresSafeArea()
