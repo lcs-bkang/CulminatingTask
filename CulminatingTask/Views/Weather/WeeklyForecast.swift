@@ -178,7 +178,7 @@ struct WeeklyForecast: View {
                     } else {
                         precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain
                     }
-                    fetchImage1(from: "https:\(decodedWeatherData.forecast.forecastday[0].day.)")
+                    fetchImage1(from: "https:\(decodedWeatherData.forecast.forecastday[0].day.condition.icon)")
                     }
             } catch {
 
