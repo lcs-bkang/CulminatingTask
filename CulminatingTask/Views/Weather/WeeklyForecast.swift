@@ -11,19 +11,57 @@ struct WeeklyForecast: View {
 
     // MARK: Stored Properties
 
+    // Variable to hold high temp for day 1
+    @State var highTemp1: Double = 0.0
+    
+    // Variable to hold high temp for day 2
+    @State var highTemp2: Double = 0.0
+    
+    // Variable to hold high temp for day 3
+    @State var highTemp3: Double = 0.0
+    
+    // Variable to hold high temp for day 4
+    @State var highTemp4: Double = 0.0
+    
+    // Variable to hold high temp for day 5
+    @State var highTemp5: Double = 0.0
+    
+    // Variable to hold the low temp for day 1
+    @State var lowTemp1: Double = 0.0
+    
+    // Variable to hold the low temp for day 2
+    @State var lowTemp2: Double = 0.0
+    
+    // Variable to hold the low temp for day 3
+    @State var lowTemp3: Double = 0.0
+    
+    // Variable to hold the low temp for day 4
+    @State var lowTemp4: Double = 0.0
+    
+    // Variable to hold the low temp for day 5
+    @State var lowTemp5: Double = 0.0
+    
+    // Variable to hold the preciptation for day 1
+    @State var precipitation1: Int = 0
+    
+    // Variable to hold the preciptation for day 2
+    @State var precipitation2: Int = 0
+    
+    // Variable to hold the preciptation for day 3
+    @State var precipitation3: Int = 0
+    
+    // Variable to hold the preciptation for day 4
+    @State var precipitation4: Int = 0
+    
+    // Variable to hold the preciptation for day 5
+    @State var precipitation5: Int = 0
+
     // MARK: Computed Properties
 
     var body: some View {
-        let highTempArray = [
-        highTemp1, highTemp2, highTemp3, highTemp4, highTemp5
-        ]
-        let lowTempArray = [
-        lowTemp1, lowTemp2, lowTemp3, lowTemp4, lowTemp5
-        ]
-        let precipitationArray = [
-        precipitation1, precipitation2, precipitation3, precipitation4, precipitation5
-        ]
-        List(
+        HStack {
+            
+        }
 
     }
 
@@ -91,15 +129,51 @@ struct WeeklyForecast: View {
                 DispatchQueue.main.async {
 
                     // Assign the results to the following stored property
-
-
-                }
+                    highTemp1 = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
+                    highTemp2 = decodedWeatherData.forecast.forecastday[1].day.maxtemp_c
+                    highTemp3 = decodedWeatherData.forecast.forecastday[2].day.maxtemp_c
+                    highTemp4 = decodedWeatherData.forecast.forecastday[3].day.maxtemp_c
+                    highTemp5 = decodedWeatherData.forecast.forecastday[4].day.maxtemp_c
+                    
+                    lowTemp1 = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
+                    lowTemp2 = decodedWeatherData.forecast.forecastday[1].day.mintemp_c
+                    lowTemp3 = decodedWeatherData.forecast.forecastday[2].day.mintemp_c
+                    lowTemp4 = decodedWeatherData.forecast.forecastday[3].day.mintemp_c
+                    lowTemp5 = decodedWeatherData.forecast.forecastday[4].day.mintemp_c
+                    
+                    if decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_rain == 0 {
+                        precipitation2 = decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_snow
+                    } else {
+                        precipitation2 = decodedWeatherData.forecast.forecastday[1].day.daily_chance_of_rain
+                    }
+                    
+                    if decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_rain == 0 {
+                        precipitation3 = decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_snow
+                    } else {
+                        precipitation3 = decodedWeatherData.forecast.forecastday[2].day.daily_chance_of_rain
+                    }
+                    if decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain == 0 {
+                        precipitation4 = decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_snow
+                    } else {
+                        precipitation4 = decodedWeatherData.forecast.forecastday[3].day.daily_chance_of_rain
+                    }
+                    if decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain == 0 {
+                        precipitation5 = decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_snow
+                    } else {
+                        precipitation5 = decodedWeatherData.forecast.forecastday[4].day.daily_chance_of_rain
+                    }
+                    if decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain == 0 {
+                        precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_snow
+                    } else {
+                        precipitation1 = decodedWeatherData.forecast.forecastday[0].day.daily_chance_of_rain
+                    }
+                    }
             } catch {
 
                 print("Could not decode JSON into an instance of the Weather structure.")
                 print(error)
             }
-
+    
         }.resume()
         // NOTE: Invoking the resume() function
         // on the dataTask closure is key. The request will not
