@@ -45,25 +45,69 @@ struct WeeklyForecast: View {
     // MARK: Computed Properties
 
     var body: some View {
-        HStack {
-            Text("Sunday")
-            
-            Spacer()
-            
-            Image(uiImage: image1)
-            
-            Spacer()
+        VStack {
             
             HStack {
-                VStack {
-                    Text("min")
-                    Text("\(lowTemp1, specifier: "%.0f")°")
-                }
-                VStack {
-                    Text("max")
-                    Text("\(highTemp1, specifier: "%.0f")°")
+                Text("Sunday")
+                
+                Spacer()
+                
+                Image(uiImage: image1)
+                
+                Spacer()
+                
+                HStack {
+                    VStack {
+                        Text("min")
+                        Text("\(lowTemp1, specifier: "%.0f")°")
+                    }
+                    VStack {
+                        Text("max")
+                        Text("\(highTemp1, specifier: "%.0f")°")
+                    }
                 }
             }
+            HStack {
+                Text("Monday")
+                
+                Spacer()
+                
+                Image(uiImage: image2)
+                
+                Spacer()
+                
+                HStack {
+                    VStack {
+                        Text("min")
+                        Text("\(lowTemp2, specifier: "%.0f")°")
+                    }
+                    VStack {
+                        Text("max")
+                        Text("\(highTemp2, specifier: "%.0f")°")
+                    }
+                }
+            }
+            HStack {
+                Text("Tuesday")
+                
+                Spacer()
+                
+                Image(uiImage: image3)
+                
+                Spacer()
+                
+                HStack {
+                    VStack {
+                        Text("min")
+                        Text("\(lowTemp3, specifier: "%.0f")°")
+                    }
+                    VStack {
+                        Text("max")
+                        Text("\(highTemp3, specifier: "%.0f")°")
+                    }
+                }
+            }
+
         }
         .onAppear() {
             fetchWeather()
