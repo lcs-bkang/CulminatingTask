@@ -32,44 +32,44 @@ struct WeatherTopHalf: View {
     // MARK: Computed Properties
     
     var body: some View {
-        
-        
-        VStack {
-            Text(location)
-                .font(.title)
-                .padding(.top, -8.0)
-            
-            Spacer()
-            
-            // HStack for temperatures and image for the condition.
-            HStack(spacing: 15) {
-                Image(uiImage: conditionsImage)
-                    .padding(.leading, 15.0)
-                    .foregroundColor(.yellow)
-                    .scaledToFit()
+        NavigationView {
+            VStack {
+                Text(location)
+                    .font(.title)
+                    .padding(.top, -8.0)
+                
                 Spacer()
                 
-                Text("\(temperature, specifier: "%.0f")°")
-                    .font(.system(size: 55))
-                    .multilineTextAlignment(.center)
-                Spacer()
-                VStack {
+                // HStack for temperatures and image for the condition.
+                HStack(spacing: 15) {
+                    Image(uiImage: conditionsImage)
+                        .padding(.leading, 15.0)
+                        .foregroundColor(.yellow)
+                        .scaledToFit()
+                    Spacer()
                     
-                    Text("High: \(highTemperature, specifier: "%.0f")°")
-                        .font(.caption)
-                    Text("Low: \(lowTemperature, specifier: "%.0f")°")
-                        .font(.caption)
-
+                    Text("\(temperature, specifier: "%.0f")°")
+                        .font(.system(size: 55))
+                        .multilineTextAlignment(.center)
+                    Spacer()
+                    VStack {
+                        
+                        Text("High: \(highTemperature, specifier: "%.0f")°")
+                            .font(.caption)
+                        Text("Low: \(lowTemperature, specifier: "%.0f")°")
+                            .font(.caption)
+                        
+                    }
+                    .padding(.trailing, 15.0)
+                    .font(.subheadline)
                 }
-                .padding(.trailing, 15.0)
-                .font(.subheadline)
+                
+                Text("Feels Like: \(feelsLike, specifier: "%.0f")°")
+                    .font(.caption)
             }
-            
-            Text("Feels Like: \(feelsLike, specifier: "%.0f")°")
-                .font(.caption)
-        }
-        .onAppear() {
-            fetchWeather()
+            .onAppear() {
+                fetchWeather()
+            }
         }
     }
     
@@ -143,7 +143,7 @@ struct WeatherTopHalf: View {
                     location = decodedWeatherData.location.name
                     highTemperature = decodedWeatherData.forecast.forecastday[0].day.maxtemp_c
                     lowTemperature = decodedWeatherData.forecast.forecastday[0].day.mintemp_c
-
+                    
                 }
             } catch {
                 
@@ -160,40 +160,41 @@ struct WeatherTopHalf: View {
     
     // Get the actual image data
     func fetchImage(from address: String) {
-
-            // 1. Prepare a URLRequest to send our encoded data as JSON
-            let url = URL(string: address)!
+        
+        // 1. Prepare a URLRequest to send our encoded data as JSON
+        let url = URL(string: address)!
+        
+        // 2. Run the request and process the response
+        URLSession.shared.dataTask(with: url) { data, response, error in
             
-            // 2. Run the request and process the response
-            URLSession.shared.dataTask(with: url) { data, response, error in
+            // handle the result here – attempt to unwrap optional data provided by task
+            guard let imageData = data else {
                 
-                // handle the result here – attempt to unwrap optional data provided by task
-                guard let imageData = data else {
+                // Show the error message
+                print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
+                
+                return
+            }
+            
+            // Update the UI on the main thread
+            DispatchQueue.main.async {
+                
+                // Attempt to create an instance of UIImage using the data from the server
+                guard let loadedWeather = UIImage(data: imageData) else {
                     
-                    // Show the error message
-                    print("No data in response: \(error?.localizedDescription ?? "Unknown error")")
-                    
+                    // If we could not load the image from the server, show a default image
+                    conditionsImage = UIImage(named: "cloud.fill")!
                     return
                 }
                 
-                // Update the UI on the main thread
-                DispatchQueue.main.async {
-                                        
-                    // Attempt to create an instance of UIImage using the data from the server
-                    guard let loadedWeather = UIImage(data: imageData) else {
-                        
-                        // If we could not load the image from the server, show a default image
-                        conditionsImage = UIImage(named: "cloud.fill")!
-                        return
-                    }
-                    
-                    // Set the image loaded from the server so that it shows in the user interface
-                    conditionsImage = loadedWeather
-                }
-                
-            }.resume()
+                // Set the image loaded from the server so that it shows in the user interface
+                conditionsImage = loadedWeather
+            }
             
-        }
+        }.resume()
+        
+        
+    }
 }
 
 struct WeatherTopHalf_Previews: PreviewProvider {
