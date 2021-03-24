@@ -19,6 +19,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
+                // Chooses which view to show
                 if showWeather {
                     WeatherView()
                 } else {
