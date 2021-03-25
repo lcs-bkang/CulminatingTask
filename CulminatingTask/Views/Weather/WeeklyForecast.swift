@@ -49,7 +49,8 @@ struct WeeklyForecast: View {
             
             HStack {
                 Text("Sunday")
-                
+                    .font(.title)
+                    .fontWeight(.semibold)
                 Spacer()
                 
                 Image(uiImage: image1)
@@ -59,11 +60,19 @@ struct WeeklyForecast: View {
                 HStack {
                     VStack {
                         Text("min")
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         Text("\(lowTemp1, specifier: "%.0f")°")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                     VStack {
                         Text("max")
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         Text("\(highTemp1, specifier: "%.0f")°")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                 }
             }
