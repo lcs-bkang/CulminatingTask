@@ -24,7 +24,7 @@ struct WeatherView: View {
                 .padding(.bottom, -50.0)
                 .padding(.trailing, 15.0)
                 .sheet(isPresented: $showAddEvent) {
-                    AddEvent()
+                    AddEvent(showThisView: $showAddEvent)
                 }
             }
             WeatherTopHalf()
