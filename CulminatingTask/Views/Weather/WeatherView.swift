@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct WeatherView: View {
+    
+    // Show the Add Event view
+    @State var showAddEvent: Bool = false
     var body: some View {
 
         ScrollView {
-            Button("+") {
-                
+            HStack {
+                Spacer()
+                Button("+") {
+                    showAddEvent = true
+                }
+                .font(.title)
+                .padding(.top, 20.0)
+                .padding(.bottom, -50.0)
+                .padding(.trailing, 15.0)
+                .sheet(isPresented: $showAddEvent) {
+                    AddEvent()
+                }
             }
-            .padding(.top, 20.0)
-            .padding(.bottom, -50.0)
             WeatherTopHalf()
             Rectangle()
                 .fill(Color.black)

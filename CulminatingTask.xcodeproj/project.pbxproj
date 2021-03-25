@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A64E682126025CB9003DED10 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64E682026025CB9003DED10 /* Location.swift */; };
 		A65735C4260BE99B00821269 /* DailyConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65735C3260BE99B00821269 /* DailyConditions.swift */; };
+		A65735CA260C10A100821269 /* AddEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65735C9260C10A100821269 /* AddEvent.swift */; };
 		A6854E7C26012B5400B5CCA9 /* CulminatingTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6854E7B26012B5400B5CCA9 /* CulminatingTaskApp.swift */; };
 		A6854E7E26012B5400B5CCA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6854E7D26012B5400B5CCA9 /* ContentView.swift */; };
 		A6854E8026012B5700B5CCA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6854E7F26012B5700B5CCA9 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		A64E682026025CB9003DED10 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A65735C3260BE99B00821269 /* DailyConditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyConditions.swift; sourceTree = "<group>"; };
+		A65735C9260C10A100821269 /* AddEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEvent.swift; sourceTree = "<group>"; };
 		A6854E7826012B5400B5CCA9 /* CulminatingTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CulminatingTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6854E7B26012B5400B5CCA9 /* CulminatingTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulminatingTaskApp.swift; sourceTree = "<group>"; };
 		A6854E7D26012B5400B5CCA9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				A6EE9DF02609802D0013A26E /* WeatherBottomHalf.swift */,
 				A6D18260260A79B0003825C2 /* WeatherView.swift */,
 				A6D1825A260A66EA003825C2 /* WeeklyForecast.swift */,
+				A65735C9260C10A100821269 /* AddEvent.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				A64E682126025CB9003DED10 /* Location.swift in Sources */,
 				A6EE9DEE260980230013A26E /* WeatherTopHalf.swift in Sources */,
 				A65735C4260BE99B00821269 /* DailyConditions.swift in Sources */,
+				A65735CA260C10A100821269 /* AddEvent.swift in Sources */,
 				A6DECA1326038C4100CE0A7B /* CurrentForecast.swift in Sources */,
 				A6D3F2242604FEE5008FC0B6 /* ForecastDay.swift in Sources */,
 			);
