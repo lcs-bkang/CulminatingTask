@@ -11,11 +11,17 @@ struct AddCity: View {
     
     @Binding var showThisView: Bool
     
+    @State var Text: String
+    
     var body: some View {
         NavigationView {
             
-            Text("Add City")
-                
+            VStack {
+            TextField("City Name", text: $Text)
+                .padding(.horizontal, 15.0)
+                .border(Color(.gray))
+                Spacer()
+            }
                 .navigationTitle("Add City")
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
@@ -35,6 +41,6 @@ struct AddCity: View {
 
 struct AddCity_Previews: PreviewProvider {
     static var previews: some View {
-        AddCity(showThisView: .constant(true))
+        AddCity(showThisView: .constant(true), Text: "Peterborough")
     }
 }
