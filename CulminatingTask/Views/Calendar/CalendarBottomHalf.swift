@@ -362,9 +362,15 @@ struct CalendarBottomHalf: View {
                     .frame(width: 43, height: 55)
                     .foregroundColor(.white)
                     .border(Color(.black))
-                Text("31")
-                    .foregroundColor(.black)
-                    .font(.caption)
+                VStack {
+                    Text("31")
+                        .foregroundColor(.black)
+                        .font(.caption)
+                    Image(systemName: "exclamationmark.bubble")
+                }
+                .onTapGesture {
+                    
+                }
             }
             .padding(.all, -5.0)
             ZStack {
