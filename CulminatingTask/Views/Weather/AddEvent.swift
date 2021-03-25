@@ -16,14 +16,14 @@ struct AddEvent: View {
             
             Text("Add Event")
 
-        }
-        .navigationTitle("Add Event")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button("Done") {
-                    hideView()
+                .navigationTitle("Add Event")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button("Done") {
+                            hideView()
+                        }
+                    }
                 }
-            }
         }
     }
     
