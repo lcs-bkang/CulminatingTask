@@ -48,7 +48,7 @@ struct WeeklyForecast: View {
         VStack {
             
             HStack {
-                Text("Sunday")
+                Text("Tomorrow")
                     .font(.title)
                     .fontWeight(.semibold)
                 Spacer()
@@ -82,7 +82,7 @@ struct WeeklyForecast: View {
                 .fill(Color.gray)
                 .frame(width: 320, height: 1)
             HStack {
-                Text("Monday")
+                Text("Day after ^")
                     .font(.title)
                     .fontWeight(.semibold)
                 
@@ -117,7 +117,7 @@ struct WeeklyForecast: View {
                 .fill(Color.gray)
                 .frame(width: 320, height: 1)
             HStack {
-                Text("Tuesday")
+                Text("Day after ^")
                     .font(.title)
                     .fontWeight(.semibold)
                 Spacer()

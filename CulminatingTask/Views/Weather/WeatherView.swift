@@ -11,6 +11,11 @@ struct WeatherView: View {
     var body: some View {
 
         ScrollView {
+            Button("+") {
+                
+            }
+            .padding(.top, 20.0)
+            .padding(.bottom, -50.0)
             WeatherTopHalf()
             Rectangle()
                 .fill(Color.black)
