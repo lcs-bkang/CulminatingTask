@@ -67,6 +67,7 @@ struct WeeklyForecast: View {
                     }
                 }
             }
+            .padding(.horizontal, 15.0)
             .frame(height: 45)
             Rectangle()
                 .fill(Color.gray)
@@ -91,6 +92,7 @@ struct WeeklyForecast: View {
                     }
                 }
             }
+            .padding(.horizontal, 15.0)
             .frame(height: 45)
             Rectangle()
                 .fill(Color.gray)
@@ -115,6 +117,7 @@ struct WeeklyForecast: View {
                     }
                 }
             }
+            .padding(.horizontal, 15.0)
             .frame(height: 45)
 
         }
