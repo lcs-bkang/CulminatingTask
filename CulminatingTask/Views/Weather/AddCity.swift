@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct AddEvent: View {
+struct AddCity: View {
     
     @Binding var showThisView: Bool
     
     var body: some View {
         NavigationView {
             
-            Text("Add Event")
-
-                .navigationTitle("Add Event")
+            Text("Add City")
+                
+                .navigationTitle("Add City")
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         Button("Done") {
                             hideView()
-                        }
                     }
                 }
+            }
         }
     }
     
@@ -33,8 +33,8 @@ struct AddEvent: View {
     }
 }
 
-struct AddEvent_Previews: PreviewProvider {
+struct AddCity_Previews: PreviewProvider {
     static var previews: some View {
-        AddEvent(showThisView: .constant(true))
+        AddCity(showThisView: .constant(true))
     }
 }
