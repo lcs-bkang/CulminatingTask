@@ -22,6 +22,8 @@ struct CalendarTopHalf: View {
                 .frame(width: 320, height: 1)
             HStack {
                 Text("\(month) \(year)")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
                     .padding(.leading, 15.0)
                 Spacer()
             }

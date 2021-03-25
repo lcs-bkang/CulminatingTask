@@ -35,6 +35,7 @@ struct CalendarBottomHalf: View {
                 .frame(width: 43, height: 55)
                 .padding(.all, -5.0)
         }
+        .padding(.top, -10.0)
         HStack {
             ZStack {
                 Rectangle()
