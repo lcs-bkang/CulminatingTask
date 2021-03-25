@@ -23,6 +23,11 @@ struct CalendarView: View {
             Button("Alerts") {
                 showAlerts = true
             }
+            .font(.title)
+            .padding(.leading, 15.0)
+            .sheet(isPresented: $showAlerts) {
+                Alerts(showThisView: $showAlerts, text: "")
+            }
             Spacer()
             Button("+") {
                 showAddEvent = true
