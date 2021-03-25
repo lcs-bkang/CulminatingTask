@@ -10,7 +10,6 @@ import SwiftUI
 struct AddEvent: View {
     @Binding var showThisView: Bool
     
-    @State var text: String
     
     var body: some View {
         NavigationView {
@@ -36,6 +35,6 @@ struct AddEvent: View {
 
 struct AddEvent_Previews: PreviewProvider {
     static var previews: some View {
-        AddEvent(showThisView: .constant(true), text: "Add Events" )
+        AddEvent(showThisView: .constant(true))
     }
 }

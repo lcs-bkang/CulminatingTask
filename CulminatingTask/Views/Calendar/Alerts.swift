@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct Alerts: View {
+    
+    @Binding var showThisView: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            
+            Text("Alerts")
+                .navigationTitle("Alerts")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button("Done") {
+                            hideView()
+                    }
+                }
+            }
+        }
+    }
+    
+    // MARK: Functions
+    func hideView() {
+        return showThisView = false
     }
 }
 
 struct Alerts_Previews: PreviewProvider {
     static var previews: some View {
-        Alerts()
+        Alerts(showThisView: .constant(true))
     }
 }

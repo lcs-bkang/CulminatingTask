@@ -11,13 +11,13 @@ struct AddCity: View {
     
     @Binding var showThisView: Bool
     
-    @State var Text: String
+    @State var text: String
     
     var body: some View {
         NavigationView {
             
             VStack {
-            TextField("City Name", text: $Text)
+            TextField("City Name", text: $text)
                 .padding(.horizontal, 15.0)
                 .border(Color(.gray))
                 Spacer()
@@ -41,6 +41,6 @@ struct AddCity: View {
 
 struct AddCity_Previews: PreviewProvider {
     static var previews: some View {
-        AddCity(showThisView: .constant(true), Text: "Peterborough")
+        AddCity(showThisView: .constant(true), text: "Peterborough")
     }
 }

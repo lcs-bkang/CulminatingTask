@@ -26,7 +26,7 @@ struct CalendarView: View {
             .font(.title)
             .padding(.leading, 15.0)
             .sheet(isPresented: $showAlerts) {
-                Alerts(showThisView: $showAlerts, text: "")
+                Alerts(showThisView: $showAlerts)
             }
             Spacer()
             Button("+") {
@@ -35,7 +35,7 @@ struct CalendarView: View {
             .font(.title)
             .padding(.trailing, 15.0)
             .sheet(isPresented: $showAddEvent) {
-                AddEvent(showThisView: $showAddEvent, text: "")
+                AddEvent(showThisView: $showAddEvent)
             }
         }
             Rectangle()
