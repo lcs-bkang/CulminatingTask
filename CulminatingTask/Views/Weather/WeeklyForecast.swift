@@ -67,6 +67,10 @@ struct WeeklyForecast: View {
                     }
                 }
             }
+            .frame(height: 45)
+            Rectangle()
+                .fill(Color.gray)
+                .frame(width: 320, height: 1)
             HStack {
                 Text("Monday")
                 
@@ -87,6 +91,10 @@ struct WeeklyForecast: View {
                     }
                 }
             }
+            .frame(height: 45)
+            Rectangle()
+                .fill(Color.gray)
+                .frame(width: 320, height: 1)
             HStack {
                 Text("Tuesday")
                 
@@ -107,6 +115,7 @@ struct WeeklyForecast: View {
                     }
                 }
             }
+            .frame(height: 45)
 
         }
         .onAppear() {
