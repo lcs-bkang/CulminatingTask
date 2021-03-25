@@ -29,7 +29,16 @@ struct CalendarView: View {
                 Spacer()
             }
             Spacer()
-            
+            HStack {
+                ZStack {
+                    Rectangle()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                    
+                }
+            }
         }
     }
     
