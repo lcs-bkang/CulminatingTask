@@ -28,17 +28,67 @@ struct CalendarView: View {
                     .padding(.leading, 15.0)
                 Spacer()
             }
-            Spacer()
             HStack {
                 ZStack {
                     Rectangle()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 43, height: 55)
                         .foregroundColor(.green)
                         .border(Color(.black))
                     Text("Date")
-                    
                 }
+                .padding(.all, -5.0)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 43, height: 55)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                }
+                .padding(.all, -5.0)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 43, height: 55)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                }
+                .padding(.all, -5.0)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 43, height: 55)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                }
+                .padding(.all, -5.0)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 43, height: 55)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                }
+                .padding(.all, -5.0)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 43, height: 55)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                }
+                .padding(.all, -5.0)
+                ZStack {
+                    Rectangle()
+                        .frame(width: 43, height: 55)
+                        .foregroundColor(.green)
+                        .border(Color(.black))
+                    Text("Date")
+                }
+                .padding(.all, -5.0)
+
             }
+
+            Spacer()
         }
     }
     
