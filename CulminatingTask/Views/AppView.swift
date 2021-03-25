@@ -1,22 +1,16 @@
 //
-//  ContentView.swift
+//  AppView.swift
 //  CulminatingTask
 //
-//  Created by Brad Kang on 2021-03-16.
+//  Created by Brad Kang on 2021-03-24.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct AppView: View {
     
-    // MARK: Stored Properties
-    
-
-    
-    // Initialize a timer that will fire in one second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    
-    // MARK: Computed Properties
+    // Variable to hold what view to choose
+    @State var showWeather: Bool = false
     
     var body: some View {
         NavigationView {
@@ -55,9 +49,8 @@ struct ContentView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
+struct AppView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AppView()
     }
 }
