@@ -12,6 +12,7 @@
 		A65735CA260C10A100821269 /* AddCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65735C9260C10A100821269 /* AddCity.swift */; };
 		A65735D1260C1CF600821269 /* CalendarTopHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65735D0260C1CF600821269 /* CalendarTopHalf.swift */; };
 		A65735D4260C1D3600821269 /* CalendarBottomHalf.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65735D3260C1D3600821269 /* CalendarBottomHalf.swift */; };
+		A65735D8260C237000821269 /* SingleDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65735D7260C237000821269 /* SingleDay.swift */; };
 		A6854E7C26012B5400B5CCA9 /* CulminatingTaskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6854E7B26012B5400B5CCA9 /* CulminatingTaskApp.swift */; };
 		A6854E7E26012B5400B5CCA9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6854E7D26012B5400B5CCA9 /* ContentView.swift */; };
 		A6854E8026012B5700B5CCA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6854E7F26012B5700B5CCA9 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		A65735C9260C10A100821269 /* AddCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCity.swift; sourceTree = "<group>"; };
 		A65735D0260C1CF600821269 /* CalendarTopHalf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTopHalf.swift; sourceTree = "<group>"; };
 		A65735D3260C1D3600821269 /* CalendarBottomHalf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBottomHalf.swift; sourceTree = "<group>"; };
+		A65735D7260C237000821269 /* SingleDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDay.swift; sourceTree = "<group>"; };
 		A6854E7826012B5400B5CCA9 /* CulminatingTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CulminatingTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6854E7B26012B5400B5CCA9 /* CulminatingTaskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CulminatingTaskApp.swift; sourceTree = "<group>"; };
 		A6854E7D26012B5400B5CCA9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				A6D1825D260A7988003825C2 /* CalendarView.swift */,
 				A65735D0260C1CF600821269 /* CalendarTopHalf.swift */,
 				A65735D3260C1D3600821269 /* CalendarBottomHalf.swift */,
+				A65735D7260C237000821269 /* SingleDay.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				A6D18261260A79B0003825C2 /* WeatherView.swift in Sources */,
 				A6DECA1F2603957F00CE0A7B /* DailyWeather.swift in Sources */,
+				A65735D8260C237000821269 /* SingleDay.swift in Sources */,
 				A6D3F2212604FC91008FC0B6 /* SunTimes.swift in Sources */,
 				A65735D4260C1D3600821269 /* CalendarBottomHalf.swift in Sources */,
 				A6EE9DF12609802D0013A26E /* WeatherBottomHalf.swift in Sources */,
