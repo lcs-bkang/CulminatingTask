@@ -13,16 +13,21 @@ struct CalendarView: View {
     // Variable to hold the month
     @State var month: String = "March"
     
+    // Variable to hold the year
+    @State var year: String = "2021"
     // MARK: Computed Properties
     
     var body: some View {
         
         VStack {
-            Text(month)
-            
-            Rectangle()
+                Rectangle()
                 .fill(Color.black)
                 .frame(width: 320, height: 1)
+            HStack {
+                Text("\(month) \(year)")
+                    .padding(.leading, 15.0)
+                Spacer()
+            }
             Spacer()
             
         }
