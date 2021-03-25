@@ -29,6 +29,29 @@ struct CalendarView: View {
                 Spacer()
             }
             HStack {
+                Text("S")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+                Text("M")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+                Text("T")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+                Text("W")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+                Text("T")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+                Text("F")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+                Text("S")
+                    .frame(width: 43, height: 55)
+                    .padding(.all, -5.0)
+            }
+            HStack {
                 ZStack {
                     Rectangle()
                         .frame(width: 43, height: 55)
@@ -87,6 +110,7 @@ struct CalendarView: View {
                 .padding(.all, -5.0)
 
             }
+            .padding(.top, -15.0)
 
             Spacer()
         }
