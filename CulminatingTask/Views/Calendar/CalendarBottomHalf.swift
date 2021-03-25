@@ -38,6 +38,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("28")
                     .foregroundColor(.gray)
                     .font(.caption)
@@ -47,6 +48,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("1")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -56,6 +58,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("2")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -65,6 +68,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("3")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -74,6 +78,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("4")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -83,6 +88,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("5")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -92,6 +98,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("6")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -105,6 +112,7 @@ struct CalendarBottomHalf: View {
                 Rectangle()
                     .frame(width: 43, height: 55)
                     .border(Color(.black))
+                    .foregroundColor(.white)
                 Text("7")
                     .foregroundColor(.black)
                     .font(.caption)
@@ -113,7 +121,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("8")
                     .foregroundColor(.black)
@@ -123,7 +131,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("9")
                     .foregroundColor(.black)
@@ -133,7 +141,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("10")
                     .foregroundColor(.black)
@@ -143,7 +151,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("11")
                     .foregroundColor(.black)
@@ -153,7 +161,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("12")
                     .foregroundColor(.black)
@@ -163,7 +171,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("13")
                     .foregroundColor(.black)
@@ -176,7 +184,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("14")
                     .foregroundColor(.black)
@@ -186,7 +194,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("15")
                     .foregroundColor(.black)
@@ -196,7 +204,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("16")
                     .foregroundColor(.black)
@@ -206,7 +214,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("17")
                     .foregroundColor(.black)
@@ -216,7 +224,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("18")
                     .foregroundColor(.black)
@@ -226,7 +234,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("19")
                     .foregroundColor(.black)
@@ -236,7 +244,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("20")
                     .foregroundColor(.black)
@@ -249,7 +257,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("21")
                     .foregroundColor(.black)
@@ -259,7 +267,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("22")
                     .foregroundColor(.black)
@@ -269,7 +277,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("23")
                     .foregroundColor(.black)
@@ -279,6 +287,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("24")
                     .foregroundColor(.black)
@@ -288,7 +297,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("25")
                     .foregroundColor(.black)
@@ -298,7 +307,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("26")
                     .foregroundColor(.black)
@@ -308,7 +317,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("27")
                     .foregroundColor(.black)
@@ -321,7 +330,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("28")
                     .foregroundColor(.black)
@@ -331,7 +340,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("29")
                     .foregroundColor(.black)
@@ -341,7 +350,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("30")
                     .foregroundColor(.black)
@@ -351,7 +360,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("31")
                     .foregroundColor(.black)
@@ -361,7 +370,7 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("1")
                     .foregroundColor(.gray)
@@ -371,17 +380,17 @@ struct CalendarBottomHalf: View {
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("2")
-                    .foregroundColor(.black)
+                    .foregroundColor(.gray)
                     .font(.caption)
             }
             .padding(.all, -5.0)
             ZStack {
                 Rectangle()
                     .frame(width: 43, height: 55)
-
+                    .foregroundColor(.white)
                     .border(Color(.black))
                 Text("3")
                     .foregroundColor(.gray)
