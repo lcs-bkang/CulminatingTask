@@ -11,47 +11,32 @@ struct ContentView: View {
     
     // MARK: Stored Properties
     
-
+    // Variable to choose when to stop showing the loading screen
+    @State var showApp: Bool = false
     
     // Initialize a timer that will fire in one second
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1.5, on: .main, in: .common).autoconnect()
     
     // MARK: Computed Properties
     
     var body: some View {
+        if showApp {
+            AppView()
+        } else {
         NavigationView {
-            VStack {
-                // Chooses which view to show
-                if showWeather {
-                    WeatherView()
-                } else {
-                    CalendarView()
-                }
-            }
-            .navigationBarTitle("")
-            .navigationBarHidden(true)
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Spacer()
-                    Image(systemName: "calendar")
-                        .resizable()
-                        .frame(width: 33, height: 27)
-                        .foregroundColor(.red)
-                        .onTapGesture {
-                            self.showWeather = false
-                        }
-                    Spacer()
-                    Image(systemName: "cloud")
-                        .resizable()
-                        .frame(width: 40, height: 27)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            self.showWeather = true
-                    }
-                    Spacer()
+            Text("Loading...")
+                .font(.largeTitle)
+                .onReceive(timer) { input in
+                
+                // Set the flag to enable animations
+                    showApp = true
+                
+                // Stop the timer from continuing to fire
+                timer.upstream.connect().cancel()
                 }
             }
         }
+
     }
 }
 
