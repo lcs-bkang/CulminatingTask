@@ -76,13 +76,15 @@ struct WeeklyForecast: View {
                     }
                 }
             }
-            .padding(.horizontal, 15.0)
+            .padding(.horizontal, 12.0)
             .frame(height: 45)
             Rectangle()
                 .fill(Color.gray)
                 .frame(width: 320, height: 1)
             HStack {
                 Text("Monday")
+                    .font(.title)
+                    .fontWeight(.semibold)
                 
                 Spacer()
                 
@@ -93,22 +95,31 @@ struct WeeklyForecast: View {
                 HStack {
                     VStack {
                         Text("min")
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         Text("\(lowTemp2, specifier: "%.0f")°")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                     VStack {
                         Text("max")
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         Text("\(highTemp2, specifier: "%.0f")°")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                 }
             }
-            .padding(.horizontal, 15.0)
+            .padding(.horizontal, 12.0)
             .frame(height: 45)
             Rectangle()
                 .fill(Color.gray)
                 .frame(width: 320, height: 1)
             HStack {
                 Text("Tuesday")
-                
+                    .font(.title)
+                    .fontWeight(.semibold)
                 Spacer()
                 
                 Image(uiImage: image3)
@@ -118,15 +129,23 @@ struct WeeklyForecast: View {
                 HStack {
                     VStack {
                         Text("min")
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         Text("\(lowTemp3, specifier: "%.0f")°")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                     VStack {
                         Text("max")
+                            .font(.caption)
+                            .fontWeight(.semibold)
                         Text("\(highTemp3, specifier: "%.0f")°")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                 }
             }
-            .padding(.horizontal, 15.0)
+            .padding(.horizontal, 12.0)
             .frame(height: 45)
 
         }
