@@ -16,10 +16,6 @@ struct CalendarTopHalf: View {
     @State var year: String = "2021"
     
     var body: some View {
-        VStack {
-                Rectangle()
-                .fill(Color.black)
-                .frame(width: 320, height: 1)
             HStack {
                 Text("\(month) \(year)")
                     .font(.largeTitle)
@@ -28,7 +24,7 @@ struct CalendarTopHalf: View {
                 Spacer()
             }
     }
-}
+
 }
 struct CalendarTopHalf_Previews: PreviewProvider {
     static var previews: some View {

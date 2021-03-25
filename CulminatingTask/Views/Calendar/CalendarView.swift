@@ -12,27 +12,35 @@ struct CalendarView: View {
     // MARK: Stored Properties
     @State var showAddEvent: Bool = false
     
+    @State var showAlerts: Bool = false
+    
     // MARK: Computed Properties
     
     var body: some View {
+        VStack {
+
         HStack {
+            Button("Alerts") {
+                showAlerts = true
+            }
             Spacer()
             Button("+") {
                 showAddEvent = true
             }
             .font(.title)
-            .padding(.top, 20.0)
-            .padding(.bottom, -50.0)
             .padding(.trailing, 15.0)
             .sheet(isPresented: $showAddEvent) {
                 AddEvent(showThisView: $showAddEvent, text: "")
             }
         }
-        VStack {
+            Rectangle()
+            .fill(Color.black)
+            .frame(width: 320, height: 1)
+            
             CalendarTopHalf()
+            
             CalendarBottomHalf()
         }
-
     }
     
     // MARK: Functions
