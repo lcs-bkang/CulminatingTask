@@ -21,7 +21,7 @@ struct WeatherView: View {
                 .frame(width: 320, height: 1)
             WeeklyForecast()
         }
-        .background(Color(hue: 195/360, saturation: 0.3, brightness: 0.8))
+        .background(Color(hue: 195/360, saturation: 0.3, brightness: 0.9))
         .ignoresSafeArea()
     }
 }
