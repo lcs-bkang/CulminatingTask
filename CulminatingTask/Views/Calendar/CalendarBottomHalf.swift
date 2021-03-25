@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CalendarBottomHalf: View {
+    
+    @State var showSingleDay: Bool = false
     var body: some View {
 
         HStack {
@@ -369,7 +371,10 @@ struct CalendarBottomHalf: View {
                     Image(systemName: "exclamationmark.bubble")
                 }
                 .onTapGesture {
-                    
+                    showSingleDay = true
+                }
+                .sheet(isPresented: $showSingleDay) {
+                    SingleDay(showThisView: $showSingleDay)
                 }
             }
             .padding(.all, -5.0)
